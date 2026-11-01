@@ -1,0 +1,22 @@
+{
+  "name": "مدرسة الهدى العالية — سجل التقويم المستمر الإسلامي",
+  "short_name": "الهدى - التقويم",
+  "id": "guidance-islamic-ca-arabic-v1",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "scope": "./",
+  "background_color": "#fbf6f0",
+  "theme_color": "#702c45",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

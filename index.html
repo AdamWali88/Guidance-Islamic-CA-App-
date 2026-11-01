@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1e3a8a">
+<meta name="description" content="مدرسة الهدى العالية — سجل التقويم المستمر الإسلامي">
+<link rel="manifest" href="manifest.json">
+<title>مدرسة الهدى العالية — سجل التقويم المستمر الإسلامي</title>
+<style>
+:root{--navy:#1e3a8a;--blue:#4f46e5;--teal:#0f766e;--gold:#f59e0b;--bg:#f4f7ff;--card:#fff;--text:#172033;--muted:#5e6b82;--line:#d9e2f0;--danger:#b42318;--shadow:0 10px 30px rgba(30,58,138,.12);--radius:18px}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+.hidden{display:none!important}.app{min-height:100vh}
+.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.20),transparent 25%),linear-gradient(135deg,#172554,#2563eb 58%,#0f766e);position:relative;overflow:hidden}
+.login:before,.login:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.06)}.login:before{width:360px;height:360px;right:-130px;top:-100px}.login:after{width:280px;height:280px;left:-120px;bottom:-100px}
+.login-card{width:min(460px,100%);background:rgba(255,255,255,.97);border-radius:28px;padding:30px;box-shadow:0 25px 70px rgba(0,0,0,.25);position:relative;z-index:1}
+.brand{text-align:center}.logo{width:78px;height:78px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 4px 15px rgba(0,0,0,.14);background:#e8eef3}.login-title{font-size:20px;font-weight:900;color:var(--navy);margin:12px 0 7px}.school{font-size:14px;font-weight:800;line-height:1.45;color:#34495e;text-transform:uppercase}.subtitle{color:var(--muted);font-size:13px;margin:7px 0 24px}
+.field{margin:12px 0}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:6px;color:#465564}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,170,.10)}
+.primary{background:var(--navy);color:white;padding:12px 16px;border-radius:12px;font-weight:800}.primary:hover{filter:brightness(1.08)}.secondary{background:#eef2ff;color:var(--navy);padding:11px 15px;border-radius:12px;font-weight:800}.danger{background:#fdecec;color:var(--danger);padding:11px 15px;border-radius:12px;font-weight:800}.small{font-size:12px}.error{color:var(--danger);background:#fff0f0;padding:9px;border-radius:10px;margin:10px 0;font-size:12px;font-weight:700}
+.shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#172554;color:#fff;padding:18px 14px;position:sticky;top:0;height:100vh}.side-brand{padding:8px 10px 18px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:14px}.side-brand .side-logo{width:52px;height:52px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.9);display:block;margin:0 auto 10px}.side-brand .school-mini{font-size:11px;line-height:1.4;font-weight:800;text-align:center}.nav button{display:flex;align-items:center;gap:11px;width:100%;padding:12px 12px;margin:4px 0;border-radius:12px;background:transparent;color:#dce9f2;text-align:left;font-weight:750}.nav button.active,.nav button:hover{background:rgba(255,255,255,.12);color:#fff}.side-bottom{position:absolute;bottom:15px;left:14px;right:14px}.content{min-width:0}.topbar{height:70px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 25px;position:fixed;top:0;left:250px;right:0;z-index:25}.topbar h1{font-size:19px;margin:0;color:var(--navy)}.top-user{display:flex;align-items:center;gap:10px;white-space:nowrap}.user-pill{font-size:12px;font-weight:800;color:#516171}.user-pill b{color:var(--navy)}.user-pill span{color:var(--teal)}.mobile-menu{display:none;background:#eaf1f6;color:var(--navy);border-radius:10px;padding:9px 11px}
+.main{padding:95px 25px 25px;max-width:1450px;margin:auto}.brand-strip{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px 18px;box-shadow:var(--shadow);margin-bottom:16px}.brand-strip img{width:62px;height:62px;border-radius:50%;object-fit:cover;border:3px solid #e5edf3}.brand-strip .school-name{font-size:15px;font-weight:900;color:var(--navy);line-height:1.35;text-transform:uppercase}.brand-strip .app-name{font-size:12px;font-weight:800;color:var(--muted);margin-top:4px}.dashboard-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.meta-chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800;color:#e8f4fb}.module-grid{grid-template-columns:repeat(2,1fr)}.module{position:relative;min-height:170px;padding:22px}.module .module-arrow{position:absolute;right:18px;bottom:18px;color:var(--navy);font-size:16px;font-weight:900}.module .secondary{display:inline-block}.hero{background:linear-gradient(110deg,#1e3a8a,#4f46e5);color:white;border-radius:22px;padding:25px;box-shadow:var(--shadow);display:flex;justify-content:space-between;gap:20px;align-items:center}.hero h2{margin:0 0 7px;font-size:25px}.hero p{margin:0;color:#dcecf7;font-size:13px}.hero-badge{background:rgba(255,255,255,.12);padding:12px 15px;border-radius:14px;font-size:12px;font-weight:800;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}.stat .label{font-size:12px;color:var(--muted);font-weight:750}.stat .num{font-size:29px;font-weight:900;color:var(--navy);margin-top:5px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0 12px}.section-title h3{margin:0;color:var(--navy);font-size:17px}.actions{display:flex;gap:8px;flex-wrap:wrap}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}.table{width:100%;border-collapse:collapse;min-width:680px;background:white}.table th,.table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:12px}.table th{background:#f5f8fa;color:#4c5b69;font-size:11px;text-transform:uppercase;letter-spacing:.03em}.table tr:last-child td{border-bottom:0}.empty{padding:35px;text-align:center;color:var(--muted);font-size:13px}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.module{padding:20px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);text-align:left}.module .icon{font-size:27px}.module h4{margin:10px 0 5px;color:var(--navy);font-size:15px}.module p{font-size:12px;color:var(--muted);line-height:1.5;margin:0 0 14px}
+.csv-panel{margin-top:16px;padding:14px;border:1px solid #d5e5ef;border-radius:14px;background:#f5fbfe}.csv-panel h4{margin:0 0 6px;color:var(--navy)}.csv-panel p{font-size:12px;line-height:1.5;color:var(--muted);margin:0 0 12px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:end}.toolbar .field{min-width:150px;flex:1}.toolbar .field.wide{flex:2}.notice{padding:11px 13px;border-radius:12px;background:#eef7fb;color:#31556f;font-size:12px;line-height:1.5}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 15px}.tab{padding:9px 12px;border-radius:10px;background:#edf2f6;color:#496071;font-weight:800;font-size:12px}.tab.active{background:var(--navy);color:#fff}
+.modal{position:fixed;inset:0;background:rgba(9,29,44,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:30}.modal.open{display:flex}.modal-card{background:white;width:min(700px,100%);max-height:90vh;overflow:auto;border-radius:20px;padding:22px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modal-head h3{margin:0;color:var(--navy)}.x{background:#edf2f6;border-radius:50%;width:34px;height:34px;font-weight:900}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}.check{display:flex;gap:8px;align-items:center;font-size:12px;font-weight:700}.toast{position:fixed;right:18px;bottom:18px;background:var(--navy);color:#fff;padding:12px 15px;border-radius:12px;box-shadow:var(--shadow);font-size:12px;font-weight:750;z-index:60;display:none}.toast.show{display:block}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.module-grid{grid-template-columns:repeat(2,1fr)}.shell{grid-template-columns:1fr}.sidebar{position:fixed;left:-270px;width:250px;z-index:30;transition:.25s}.sidebar.open{left:0}.mobile-menu{display:block}.topbar{left:0;padding:0 15px}.main{padding:77px 15px 15px}}
+@media(max-width:620px){.result-table th,.result-table td{font-size:11px;padding:8px 4px}.result-table .result-input{width:50px!important;font-size:13px!important}.grid,.module-grid,.kpi-grid{grid-template-columns:1fr}.brand-strip{padding:13px}.brand-strip img{width:52px;height:52px}.top-user{gap:6px}.user-pill{font-size:11px}.hero{align-items:flex-start;flex-direction:column}.row{grid-template-columns:1fr}.login-card{padding:22px}.main{padding:74px 12px 12px}.topbar{height:62px}}
+@media print{body{background:#fff}.sidebar,.topbar,.no-print,.modal,.toast{display:none!important}.shell{display:block}.main{padding:0;max-width:none}.card,.hero{box-shadow:none;border:0}.print-head{display:block!important}.table{min-width:0}.table th,.table td{font-size:10px;padding:6px}}
+.print-head{display:none;text-align:center;margin-bottom:15px}.print-head .school-print{font-size:18px;font-weight:900;text-transform:uppercase}.print-head .title-print{font-size:15px;font-weight:800;margin-top:4px}
+.exam-paper{max-width:850px;margin:0 auto;color:#111;font-family:Arial,Helvetica,sans-serif}.exam-paper-head{text-align:center;margin-bottom:12px}.exam-paper-school{font-size:18px;font-weight:900;text-transform:uppercase;line-height:1.25}.exam-paper-title{font-size:15px;font-weight:900;text-transform:uppercase;margin-top:5px}.exam-meta{margin-top:10px;font-size:12px;line-height:1.7}.exam-meta-row{display:flex;gap:28px;flex-wrap:wrap}.exam-label{font-weight:800}.exam-instructions{margin:12px 0 14px;font-size:12px;line-height:1.55}.exam-section-title{text-align:center;font-weight:900;font-size:14px;margin:15px 0 7px;text-transform:uppercase}.exam-section-sub{text-align:center;font-weight:700;font-size:12px;margin-bottom:12px}.exam-question{font-size:13px;line-height:1.45;margin:0 0 10px;white-space:pre-wrap}.exam-essay{margin-bottom:11px}.exam-print-actions{margin-bottom:15px}.exam-paper ol{padding-left:27px;margin-top:6px}.exam-paper ol li{padding-left:4px;margin-bottom:9px}
+
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:#1e40af!important;color:#fff!important;padding:10px 14px;border-radius:11px;font-weight:800;font-size:12px;border:1px solid #93c5fd;text-shadow:none}
+.score-box{width:88px;padding:8px 7px!important;text-align:center;font-weight:800}
+.print-box{border:1px solid #111;min-width:70px;height:25px;text-align:center}
+
+.status-pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#e7f7ee;color:#17663a;font-size:11px;font-weight:800}.app-footer{text-align:center;padding:22px 10px 10px;background:#f3f6f9;color:#7b8792;font-size:11px;font-weight:700}
+.app-footer b{color:var(--navy)}
+.result-input{width:72px!important;padding:3px 0!important;text-align:center;border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;border-radius:0!important;-webkit-appearance:none;appearance:none}
+.score-box{width:72px!important;padding:3px 0!important;text-align:center;border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;border-radius:0!important;-webkit-appearance:none;appearance:none}
+.edit-score-box{width:68px!important;padding:3px 0!important;text-align:center;font-weight:900;border:0!important;outline:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;-webkit-appearance:none;appearance:none}.edit-score-box:focus{border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important}.delete-assessment{background:#fdecec;color:var(--danger);padding:8px 11px;border-radius:10px;font-weight:850}.edit-note{background:#fff8e8;color:#6d5318;padding:9px 11px;border-radius:10px;font-size:11px;line-height:1.45}
+.score-box:focus,.result-input:focus,.edit-score-box:focus{border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important}
+.result-table{min-width:0!important;width:100%;table-layout:fixed}.result-table th,.result-table td{padding:9px 6px}.result-table th:nth-child(1),.result-table td:nth-child(1){width:42px;text-align:center}.result-table th:nth-child(2),.result-table td:nth-child(2){width:38%;text-align:left}.result-table th:nth-child(3),.result-table td:nth-child(3){width:13%;text-align:center}.result-table th:nth-child(4),.result-table td:nth-child(4){width:12%;text-align:center}.result-table th:nth-child(5),.result-table td:nth-child(5){width:14%;text-align:center}.result-table th:nth-child(6),.result-table td:nth-child(6){width:10%;text-align:center}.result-table .result-input{width:58px!important}.result-table td:nth-child(2) b{display:block;white-space:normal;line-height:1.25}.score-entry-table{min-width:0!important;width:100%}.score-entry-table th,.score-entry-table td{padding:9px 7px}.score-entry-table th:nth-child(1),.score-entry-table td:nth-child(1){width:42px;text-align:center}.score-entry-table th:nth-child(3),.score-entry-table td:nth-child(3){width:82px;text-align:center}.score-entry-table th:nth-child(4),.score-entry-table td:nth-child(4){width:76px;text-align:center}.score-entry-table td:nth-child(2){white-space:normal}.score-entry-table .student-name{font-weight:800;line-height:1.25}
+@media(max-width:620px){.score-entry-table th,.score-entry-table td{font-size:11px;padding:8px 5px}.score-entry-table th:nth-child(1),.score-entry-table td:nth-child(1){width:35px}.score-entry-table th:nth-child(3),.score-entry-table td:nth-child(3){width:70px}.score-entry-table th:nth-child(4),.score-entry-table td:nth-child(4){width:60px}.score-entry-table .score-box{width:55px!important;font-size:14px!important}.score-entry-table .student-name{font-size:12px}}
+@media print{.app-footer{display:none!important}}
+
+/* V32 compact school-branded dashboard */
+.dashboard-home{display:flex;flex-direction:column;gap:9px}.dashboard-home .brand-strip{margin:0;padding:9px 12px;border-radius:14px;gap:11px}.dashboard-home .brand-strip img{width:44px;height:44px}.dashboard-home .brand-strip .school-name{font-size:13px}.dashboard-home .brand-strip .app-name{font-size:10px}.dashboard-home .home-welcome{display:flex;align-items:center;justify-content:space-between;gap:8px;background:linear-gradient(110deg,var(--navy),var(--blue));color:#fff;border-radius:14px;padding:10px 13px}.dashboard-home .home-welcome h2{font-size:16px;line-height:1.2;margin:0}.dashboard-home .home-welcome p{font-size:10px;margin:3px 0 0;color:#eef7ff}.dashboard-home .home-badge{font-size:10px;font-weight:800;white-space:nowrap;background:#ffffff20;border-radius:9px;padding:7px}.dashboard-home .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0}.dashboard-home .stat{padding:8px 9px;border-radius:12px;box-shadow:none}.dashboard-home .stat .label{font-size:9px;line-height:1.15}.dashboard-home .stat .num{font-size:20px;margin-top:3px}.dashboard-home .section-title{margin:1px 0 0}.dashboard-home .section-title h3{font-size:13px}.dashboard-home .module-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.dashboard-home .module{min-height:76px;padding:9px 10px;border-radius:13px;box-shadow:0 3px 10px rgba(18,52,90,.07);display:flex;flex-direction:row;align-items:center;gap:8px}.dashboard-home .module .icon{font-size:22px;flex-shrink:0}.dashboard-home .module h4{font-size:11px;line-height:1.2;margin:0;overflow-wrap:anywhere}.dashboard-home .module p{display:none}.dashboard-home .module .module-arrow{right:8px;bottom:5px;font-size:11px}.dashboard-home .module{padding-right:20px}.dashboard-home .home-footer{font-size:9px;text-align:center;color:var(--muted);margin-top:0}body:has(.dashboard-home) .app-footer{display:none}
+@media(max-width:1000px){.dashboard-home .module-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.dashboard-home .grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:620px){.dashboard-home{gap:7px}.dashboard-home .brand-strip{padding:7px 9px}.dashboard-home .brand-strip img{width:38px;height:38px}.dashboard-home .brand-strip .school-name{font-size:11px}.dashboard-home .brand-strip .app-name{font-size:9px}.dashboard-home .home-welcome{padding:8px 10px}.dashboard-home .home-welcome h2{font-size:14px}.dashboard-home .home-welcome p{font-size:9px}.dashboard-home .home-badge{font-size:9px;padding:6px}.dashboard-home .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.dashboard-home .stat{padding:7px 5px}.dashboard-home .stat .label{font-size:8px}.dashboard-home .stat .num{font-size:17px}.dashboard-home .module-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.dashboard-home .module{min-height:61px;padding:8px 17px 8px 8px;gap:6px}.dashboard-home .module .icon{font-size:19px}.dashboard-home .module h4{font-size:10px}.dashboard-home .module .module-arrow{right:6px;bottom:3px;font-size:10px}.main:has(.dashboard-home){padding-top:70px;padding-left:9px;padding-right:9px;padding-bottom:8px}.topbar{height:58px}.topbar h1{font-size:16px}.top-user .user-pill{font-size:9px}.top-user button{padding:7px 8px;font-size:10px}}
+
+/* High-contrast dashboard return controls: force readable light text. */
+#sidebar .side-bottom button[title="Return to Dashboard"], #sidebar .side-bottom button[onclick*="showPage('dashboard')"]{color:#fff!important;background:#1e40af!important;border:1px solid #bfdbfe!important;text-shadow:none!important}
+.back-btn, .back-btn *{color:#fff!important}
+
+/* High-contrast navigation buttons: keep text readable in all themes */
+#sidebar .side-bottom button, .back-btn, button.back-btn { color:#ffffff !important; background:#1e40af !important; border-color:#93c5fd !important; text-shadow:none !important; -webkit-text-fill-color:#ffffff !important; opacity:1 !important; }
+#sidebar .side-bottom button *, .back-btn * { color:#ffffff !important; -webkit-text-fill-color:#ffffff !important; }
+
+/* مدرسة الهدى العالية — واجهة عربية */
+html[dir="rtl"] body{direction:rtl;text-align:right;font-family:Tahoma,Arial,sans-serif}
+html[dir="rtl"] .brand-strip,html[dir="rtl"] .section-title,html[dir="rtl"] .actions{direction:rtl}
+html[dir="rtl"] input,html[dir="rtl"] select,html[dir="rtl"] textarea{direction:rtl;text-align:right}
+html[dir="rtl"] table{direction:rtl}html[dir="rtl"] .table th,html[dir="rtl"] .table td{text-align:right}html[dir="rtl"] .nav button{text-align:right}
+html[dir="rtl"] .back-btn{margin-inline-end:0;margin-inline-start:8px}
+html[dir="rtl"] .icon{margin-inline-end:0;margin-inline-start:10px}
+.login-motto{font-size:12px;color:#d4a72c;margin-top:6px;font-weight:600;direction:rtl;text-align:center}
+</style>
+</head>
+<body>
+<div id="loginView" class="login">
+  <div class="login-card">
+    <div class="brand">
+      <img id="loginLogo" class="logo" alt="شعار المدرسة">
+      <div id="loginSchool" class="school">مدرسة الهدى العالية</div>
+      <div class="login-title">سجل التقويم المستمر للطلاب</div><div class="login-motto">المعرفة تُغذّي العقل من خلال الهداية</div>
+    </div>
+    <div id="loginError" class="error hidden"></div>
+    <div class="field"><label>اسم المستخدم</label><input id="username" autocomplete="username" value="admin"></div>
+    <div class="field"><label>كلمة المرور</label><input id="password" type="password" autocomplete="current-password" placeholder="Enter password"></div>
+    <button class="primary" style="width:100%;margin-top:8px" onclick="login()">تسجيل الدخول</button>
+    <div style="text-align:center;margin-top:13px;color:#758493;font-size:11px">© 2026 MARAL COMPUTERS KADUNA. All rights reserved.</div>
+  </div>
+</div>
+
+<div id="appView" class="shell hidden">
+<aside id="sidebar" class="sidebar">
+  <div class="side-brand"><img id="sideLogo" class="side-logo" alt="شعار المدرسة"><div style="font-weight:900;font-size:14px;text-align:center;margin-bottom:6px">CA RECORD</div><div id="sideSchool" class="school-mini"></div></div>
+  <nav class="nav">
+    <button data-page="dashboard" onclick="showPage('dashboard')">🏠 <span>لوحة التحكم</span></button>
+    <button data-page="students" onclick="showPage('students')">👨‍🎓 <span>الطلاب</span></button>
+    <button data-page="assessment" onclick="showPage('assessment')">📝 <span>Assessment</span></button>
+    <button data-page="questions" onclick="showPage('questions')">❓ <span>Question Bank</span></button>
+    <button data-page="terminal" onclick="showPage('terminal')">📄 <span>Final Examination</span></button>
+    <button data-page="settings" onclick="showPage('settings')">⚙️ <span>App / Admin Settings</span></button>
+  </nav>
+  <div class="side-bottom"><button class="secondary" style="width:100%;margin-bottom:9px;background:#1e3a8a;color:#fff;border:1px solid #93c5fd;box-shadow:0 2px 8px rgba(0,0,0,.18)" onclick="showPage('dashboard')" title="Return to Dashboard">⌂ Return to Dashboard</button><button class="danger" style="width:100%" onclick="logout()">↪ Logout</button></div>
+</aside>
+<main class="content">
+  <header class="topbar"><div style="display:flex;align-items:center;gap:10px"><button class="mobile-menu" onclick="toggleSide()">☰</button><h1 id="pageTitle">لوحة التحكم</h1></div><div class="top-user"><div class="user-pill"><b id="currentUserLabel">Administrator</b><span id="currentUserMode">• Offline Mode</span></div><button class="secondary small" onclick="logout()">تسجيل الخروج</button></div></header>
+  <div id="main" class="main"></div>
+</main>
+</div>
+<div class="app-footer">© 2026 <b>MARAL COMPUTERS KADUNA</b>. All rights reserved.</div>
+
+<div id="modal" class="modal"><div class="modal-card"><div class="modal-head"><h3 id="modalTitle"></h3><button class="x" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+<div id="toast" class="toast"></div>
+
+<script>
+const KEY='guidance_islamic_ca_arabic_v1';
+const defaults={
+  school:"مدرسة الهدى العالية",
+  title:"سِجِلُّ التَّقْوِيمِ المُسْتَمِرِّ لِلطُّلَّابِ" ,
+  facilitator:"",
+  session:"",
+  term:"",
+  caMaxMark:30,
+  examMaxMark:70,
+  logo:"",
+  username:"admin",
+  password:"admin123",
+  students:[],
+  assessments:[],
+  finalScores:{},
+  questionSets:[],
+  exams:[],
+  classes:[],
+  accounts:[],
+  currentClassId:""
+};
+let db=load(); let currentPage='dashboard'; let currentUser=null;
+function load(){try{return {...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){return {...defaults}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(db)); syncAuthStorage();}
+function syncAuthStorage(){localStorage.setItem(KEY+'_auth',JSON.stringify({username:db.username,password:db.password}));}
+function normalizeDb(){db.classes=Array.isArray(db.classes)?db.classes:[];db.accounts=Array.isArray(db.accounts)?db.accounts:[];db.currentClassId=db.currentClassId||'';db.finalScores=db.finalScores&&typeof db.finalScores==='object'?db.finalScores:{};db.students=(db.students||[]).map(s=>({...s,classId:s.classId||''}));/* Fixed school scoring scheme: CA /30 + exam /70. */db.caMaxMark=30;db.examMaxMark=70;Object.keys(db.finalScores).forEach(k=>{const v=Number(guidanceToLatin(db.finalScores[k]));if(Number.isFinite(v))db.finalScores[k]=Math.max(0,Math.min(70,v));else delete db.finalScores[k];});db.assessments=Array.isArray(db.assessments)?db.assessments:[];db.assessments.forEach(a=>{const mx=Math.max(1,Number(a.maxMark)||1);a.scores=a.scores&&typeof a.scores==='object'?a.scores:{};Object.keys(a.scores).forEach(k=>{const v=Number(guidanceToLatin(a.scores[k]));if(Number.isFinite(v))a.scores[k]=Math.max(0,Math.min(mx,v));else delete a.scores[k];});});const auth=(()=>{try{return JSON.parse(localStorage.getItem(KEY+'_auth')||'null')}catch(e){return null}})();if(auth&&typeof auth.username==='string'&&auth.username.trim()){db.username=auth.username.trim();if(typeof auth.password==='string'&&auth.password)db.password=auth.password;}syncAuthStorage();}
+function classLabel(c){return c?`${c.name}${c.section?` ${c.section}`:''}`:''}
+function currentClass(){return db.classes.find(c=>c.id===db.currentClassId)||null}
+function classStudents(){const c=currentClass();return c?db.students.filter(s=>s.classId===c.id):[]}
+function legacyStudents(){return db.students.filter(s=>!s.classId)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function toast(s){const t=document.getElementById('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function schoolInitials(){const words=String(db.school||"School").trim().split(/\s+/).filter(Boolean);return (words.slice(0,2).map(w=>w.replace(/[^a-z0-9]/ig,"")[0]||"").join("")||"SC").toUpperCase()}
+function logoSrc(){return 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIyNTYiIGZpbGw9IiNmN2Y2ZWYiLz48Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjIzMiIgZmlsbD0iIzE0NTMyZCIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjExIiBmaWxsPSJub25lIiBzdHJva2U9IiNkNGE3MmMiIHN0cm9rZS13aWR0aD0iOCIvPjxwYXRoIGQ9Ik0yNTYgOTUgTDI4MCAxMzcgTDMyOCAxMjggTDMzNiAxNzYgTDM3OCAxOTIgTDM2MiAyMzcgTDM5MSAyNzYgTDM1MiAzMDUgTDM0OSAzNTMgTDMwMSAzNTUgTDI1NiAzODkgTDIyMiAzNTQgTDE3NCAzNTUgTDE2OCAzMDggTDEyOCAyODAgTDE1MSAyMzcgTDEzNSAxOTQgTDE4MCAxNzYgTDE4NyAxMzAgTDIzMyAxMzggWiIgZmlsbD0iI2Y3ZjZlZiIgc3Ryb2tlPSIjZDRhNzJjIiBzdHJva2Utd2lkdGg9IjUiLz48cGF0aCBkPSJNMjA1IDI1MCBRMjU2IDIwOCAzMDcgMjUwIEwzMDcgMzAwIFEyNTYgMjgyIDIwNSAzMDAgWiIgZmlsbD0iIzE0NTMyZCIvPjxwYXRoIGQ9Ik0yNTYgMjE4IEwyNTYgMzAwIE0yMDUgMjUwIEwyNTYgMjY3IEwzMDcgMjUwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkNGE3MmMiIHN0cm9rZS13aWR0aD0iNSIvPjx0ZXh0IHg9IjI1NiIgeT0iNDI1IiBmb250LWZhbWlseT0iTm90byBOYXNraCBBcmFiaWMsIEFtaXJpLCBzZXJpZiIgZm9udC1zaXplPSIzMSIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRpcmVjdGlvbj0icnRsIj7Zhdiv2LHYs9ipINin2YTZh9iv2Ykg2KfZhNi52KfZhNmK2Kk8L3RleHQ+PC9zdmc+'}
+function applySchoolTheme(){setThemeColors(['#702c45','#d9b56d','#fbf6f0','#287c73'])}
+function colorDistance(a,b){const x=a.match(/[a-f0-9]{2}/ig).map(v=>parseInt(v,16)),y=b.match(/[a-f0-9]{2}/ig).map(v=>parseInt(v,16));return Math.sqrt(x.reduce((n,v,i)=>n+(v-y[i])**2,0))}
+function ensureDarkColor(hex){const rgb=hex.match(/[a-f0-9]{2}/ig).map(v=>parseInt(v,16));const lum=(.2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2])/255;if(lum>.48)return '#'+rgb.map(v=>Math.round(v*.62).toString(16).padStart(2,'0')).join('');return hex}
+
+function setThemeColors(colors){const root=document.documentElement;root.style.setProperty('--navy',colors[0]);root.style.setProperty('--blue',colors[1]);root.style.setProperty('--teal',colors[2]);root.style.setProperty('--gold',colors[3]);root.style.setProperty('--shadow',`0 10px 30px ${colors[0]}22`);const meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=colors[0];const login=document.querySelector('.login');if(login)login.style.background=`radial-gradient(circle at 20% 20%,rgba(255,255,255,.18),transparent 25%),linear-gradient(135deg,${colors[0]},${colors[1]} 58%,${colors[2]})`;const sidebar=document.querySelector('.sidebar');if(sidebar)sidebar.style.background=colors[0];const hero=document.querySelector('.hero');if(hero)hero.style.background=`linear-gradient(110deg,${colors[0]},${colors[1]})`;const toastEl=document.querySelector('.toast');if(toastEl)toastEl.style.background=colors[0];document.querySelectorAll('.primary,.tab.active').forEach(el=>{el.style.background=colors[0];el.style.color='#fff'});document.querySelectorAll('.secondary,.mobile-menu,.back-btn').forEach(el=>{el.style.background=colors[1]+'18';el.style.color=colors[0]});document.querySelectorAll('.module').forEach(el=>{el.style.borderColor=colors[1]+'45'});document.querySelectorAll('.module .icon').forEach(el=>{el.style.color=colors[1]});document.querySelectorAll('.stat .num,.section-title h3,.topbar h1,.brand-strip .school-name,.login-title').forEach(el=>{el.style.color=colors[0]});document.querySelectorAll('.csv-panel').forEach(el=>{el.style.borderColor=colors[1]+'55';el.style.background=colors[1]+'0d'})}
+
+function init(){
+ normalizeDb();db.school=defaults.school;applySchoolTheme();
+ document.getElementById('loginLogo').src=logoSrc();document.getElementById('loginSchool').textContent=db.school;document.getElementById('username').value=db.username;
+ document.getElementById('sideSchool').textContent=db.school;document.getElementById('sideLogo').src=logoSrc();
+ // Always require a fresh login whenever the app is launched.
+ document.getElementById('loginView').classList.remove('hidden');
+ document.getElementById('appView').classList.add('hidden');
+}
+async function hashTeacherPassword(password){
+ try{if(window.crypto&&crypto.subtle){const bytes=new TextEncoder().encode('MARAL-CA-LOCAL-v1:'+password);const digest=await crypto.subtle.digest('SHA-256',bytes);return 'sha256:'+Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,'0')).join('')}}catch(e){}
+ // Compatibility fallback for older browsers; local accounts remain a basic access barrier only.
+ return 'fallback:'+btoa(unescape(encodeURIComponent(password)));
+}
+function canManageAccounts(){return ['admin','principal','exams_officer'].includes(currentUser?.role)}
+function roleLabel(role){return role==='admin'?'Administrator':role==='principal'?'Principal':role==='exams_officer'?'Examinations Officer':'Teacher'}
+function accountExpired(a){return !!(a&&a.expiryDate&&new Date(a.expiryDate+'T23:59:59')<new Date())}
+async function login(){
+ const u=document.getElementById('username').value.trim(),p=document.getElementById('password').value;
+ if(u===db.username&&p===db.password){currentUser={username:db.username,displayName:'Administrator',role:'admin'};localStorage.setItem(KEY+'_logged','1');document.getElementById('loginError').classList.add('hidden');openApp();return}
+ document.getElementById('loginError').textContent='Incorrect username or password. Use the local administrator login.';document.getElementById('loginError').classList.remove('hidden');
+}
+function openApp(){document.getElementById('loginView').classList.add('hidden');document.getElementById('appView').classList.remove('hidden');document.getElementById('currentUserLabel').textContent=currentUser?.displayName||'Administrator';document.getElementById('currentUserMode').textContent='• Offline Mode';const settingsNav=document.querySelector('[data-page="settings"]');if(settingsNav)settingsNav.style.display=currentUser?.role==='admin'?'flex':'none';showPage('dashboard')}
+function logout(){localStorage.removeItem(KEY+'_logged');location.reload()}
+function toggleSide(){document.getElementById('sidebar').classList.toggle('open')}
+function showPage(page){
+ if(page==='settings'&&currentUser?.role!=='admin'){toast('Only the Administrator can open App / Admin Settings.');page='dashboard'} if(page==='signup'){page='dashboard'}
+ currentPage=page;document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+ const titles={dashboard:'Dashboard',students:'Students',assessment:'Assessment',questions:'Question Bank',terminal:'Final Examination',settings:'App / Admin Settings'};
+ document.getElementById('pageTitle').textContent=titles[page]||'Dashboard';render();
+ document.getElementById('sidebar').classList.remove('open');
+}
+function render(){
+ const m=document.getElementById('main');
+ if(currentPage==='dashboard')m.innerHTML=dashboard();
+ if(currentPage==='students')m.innerHTML=studentsPage();
+ if(currentPage==='assessment')m.innerHTML=assessmentPage();
+ if(currentPage==='questions')m.innerHTML=questionsPage();
+ if(currentPage==='terminal')m.innerHTML=terminalPage();
+ if(currentPage==='settings')m.innerHTML=settingsPage();
+
+}
+function dashboard(){
+ const boys=db.students.filter(s=>s.gender==='Male').length,girls=db.students.length-boys;
+ return `<div class="dashboard-home"><div class="brand-strip"><img src="${logoSrc()}" alt="شعار المدرسة"><div><div class="school-name">${esc(db.school)}</div><div class="app-name">${esc(db.title)}</div></div></div>
+ <section class="home-welcome"><div><h2>Welcome${db.facilitator?', '+esc(db.facilitator):''}!</h2><p>Academic records workspace • ${esc(db.session||'Session not set')}</p></div><div class="home-badge">● Offline Ready</div></section>
+ <div class="grid"><div class="card stat"><div class="label">Total Students</div><div class="num">${db.students.length}</div></div><div class="card stat"><div class="label">Male</div><div class="num">${boys}</div></div><div class="card stat"><div class="label">Female</div><div class="num">${girls}</div></div><div class="card stat"><div class="label">Assessments</div><div class="num">${db.assessments.length}</div></div></div>
+ <div class="section-title"><h3>Open a Section</h3></div><div class="module-grid">
+ ${module('👨‍🎓','Students','Manage and alphabetically save your class register.','students')}
+ ${module('📝','Assessment','Enter CA scores, calculate totals and grades, save and print results.','assessment')}
+ ${module('❓','Question Bank','Create reusable question sets and keep an organized record.','questions')}
+ ${module('📄','Final Examination','Set, prepare and print final examination papers.','terminal')}
+ ${currentUser?.role==='admin'?module('⚙️','Administrator Settings','School details, class profiles, facilitator, session and security settings.','settings'):''}
+ </div><div class="home-footer">© 2026 MARAL COMPUTERS KADUNA. All rights reserved.</div></div>`;
+}
+
+function module(i,t,p,page){return `<button class="module" onclick="showPage('${page}')"><div class="icon">${i}</div><h4>${t}</h4><p>${p}</p><span class="module-arrow">→</span></button>`}
+function downloadIslamicStudentTemplate(){const content='Student Name,Gender,Admission Number\r\nAisha Bello,Female,DA001\r\nAminu Musa,Male,DA002\r\n';const blob=new Blob([content],{type:'text/csv;charset=utf-8;'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='AlHuda_Islamic_Student_Import_Template.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function importStudentListFile(){const c=currentClass();if(!c){toast('Select a class first.');return}const input=document.getElementById('studentImportFile'),f=input&&input.files&&input.files[0];if(!f){toast('Choose a student list file first.');return}const processRows=rows=>{if(!rows||!rows.length){toast('No student rows found in this file.');return}let header=rows[0].map(v=>String(v??'').trim().toLowerCase());const idx=(terms)=>header.findIndex(h=>terms.some(t=>h===t||h.includes(t)));let ni=idx(['student name','name','full name','الاسم']),gi=idx(['gender','sex','الجنس']),ai=idx(['admission number','admission no','admission','adm no','رقم القيد']);let data=rows;if(ni<0){ni=0;gi=1;ai=2}else data=rows.slice(1);let added=0,duplicates=0,empty=0;const names=new Set(classStudents().map(x=>String(x.name||'').trim().toLowerCase()));const admissions=new Set(classStudents().map(x=>String(x.admission||'').trim().toLowerCase()).filter(Boolean));for(const row of data){const name=String(row[ni]??'').trim();const gender=String(row[gi]??'').trim();const admission=String(row[ai]??'').trim();if(!name){empty++;continue}const nk=name.toLowerCase(),ak=admission.toLowerCase();if(names.has(nk)||(ak&&admissions.has(ak))){duplicates++;continue}db.students.push({id:uid(),classId:c.id,name,gender:gender?(/^(f|female|girl|أنثى)$/i.test(gender)?'Female':/^(m|male|boy|ذكر)$/i.test(gender)?'Male':gender):'',admission});names.add(nk);if(ak)admissions.add(ak);added++}save();render();toast(`Imported ${added}; duplicates skipped ${duplicates}; empty names skipped ${empty}.`)};const ext=f.name.toLowerCase().split('.').pop();if(ext==='xlsx'||ext==='xls'){if(typeof XLSX==='undefined'){toast('Excel import library is not available. Please save the file as CSV and import again.');return}const r=new FileReader();r.onload=()=>{try{const wb=XLSX.read(r.result,{type:'array'});const ws=wb.Sheets[wb.SheetNames[0]];processRows(XLSX.utils.sheet_to_json(ws,{header:1,defval:''}))}catch(e){toast('Could not read this Excel file. Try CSV.')}};r.readAsArrayBuffer(f)}else{const r=new FileReader();r.onload=()=>{const text=r.result.replace(/^\uFEFF/,'');const rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const ch=text[i];if(ch==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++}else quoted=!quoted}else if(ch===','&&!quoted){row.push(cell.trim());cell=''}else if((ch==='\n'||ch==='\r')&&!quoted){if(ch==='\r'&&text[i+1]==='\n')i++;row.push(cell.trim());if(row.some(v=>v!==''))rows.push(row);row=[];cell=''}else cell+=ch}row.push(cell.trim());if(row.some(v=>v!==''))rows.push(row);processRows(rows)};r.readAsText(f)}}
+function studentsPage(){
+ sortStudents();
+ const c=currentClass(), legacy=legacyStudents();
+ const list=c?classStudents():[];
+ const rows=list.map((st,i)=>`<tr><td>${i+1}</td><td><b>${esc(st.name)}</b></td><td>${esc(st.gender||'')}</td><td>${esc(st.admission||'')}</td><td><div class="actions"><button class="primary small" onclick="editStudent('${st.id}')">Edit Name</button><button class="danger small" onclick="deleteStudent('${st.id}')">Delete</button></div></td></tr>`).join('');
+ const classOptions=db.classes.map(x=>`<option value="${x.id}" ${c&&c.id===x.id?'selected':''}>${esc(classLabel(x))} • ${esc(x.session||'')} ${x.term?'• '+esc(x.term):''}</option>`).join('');
+ return `<div class="card" style="margin:12px 0;padding:14px"><h3>📥 استيراد قائمة الطلاب / Import Students' List</h3><p>استورد قائمة الطلاب إلى الفصل المحدد من ملف CSV أو Excel (.xlsx). الأعمدة المطلوبة: Student Name, Gender, Admission Number.</p><div class="actions"><input id="studentImportFile" type="file" accept=".csv,.xlsx,.xls,.txt" style="max-width:100%"><button class="primary" onclick="importStudentListFile()">Import Students' List</button><button class="secondary" onclick="downloadIslamicStudentTemplate()">Download Template</button></div></div><div class="card"><div class="section-title"><div style="display:flex;align-items:center;gap:10px"><button class="back-btn" onclick="showPage('dashboard')">← Return</button><h3>Student Register</h3></div><div class="actions"><button class="primary" onclick="openClassModal()">+ New Class</button>${c?`<button class="secondary" onclick="openStudentModal()">+ Add Student</button><button class="secondary" onclick="openBulkModal()">Bulk Add</button>`:''}</div></div>
+ <div class="notice"><b>Class details must be set first.</b> Students are kept separately for each class, so one teacher can manage several classes without mixing their records.</div>
+ ${db.classes.length?`<div class="field"><label>Current Class</label><select onchange="switchClass(this.value)"><option value="">Select class</option>${classOptions}</select></div>`:`<div class="notice">No class has been created yet. Create the class details before entering students.</div>`}
+ ${c?`<div class="notice"><b>${esc(classLabel(c))}</b> • Session: ${esc(c.session||'—')} • Term: ${esc(c.term||'—')} ${legacy.length?`<br><br><b>${legacy.length} existing student name${legacy.length===1?'':'s'}</b> from your previous version are preserved. After selecting/creating the correct class, use <b>Assign Existing Names</b> below to keep them.`:''}</div>`:''}
+ ${c&&legacy.length?`<div class="actions" style="margin:10px 0"><button class="primary" onclick="assignLegacyToCurrentClass()">Assign Existing Names to ${esc(classLabel(c))}</button></div>`:''}
+ <div class="section-title"><h3>${c?esc(classLabel(c))+' — '+list.length+' Student'+(list.length===1?'':'s'):'Select a class'}</h3>${c?`<button class="secondary" onclick="printStudents()">Print List</button>`:''}</div>
+ ${c?`<div class="table-wrap"><table class="table"><thead><tr><th>S/N</th><th>اسم الطالب</th><th>الجنس</th><th>Admission No.</th><th>Action</th></tr></thead><tbody>${rows||`<tr><td colspan="5" class="empty">No students added to this class yet.</td></tr>`}</tbody></table></div>`:''}</div>`;
+}
+const CLASS_LEVELS=['Islamic Primary 1','Islamic Primary 2','Islamic Primary 3','Islamic Primary 4','Islamic Primary 5','Islamic Primary 6','JISS 1','JISS 2','JISS 3','SISS 1','SISS 2','SISS 3'];
+const JSS_ARMS=['الإسلامية'];
+const SS_ARMS=['متوسط','ثانوية'];
+function armsForLevel(level){if(/^Islamic Primary/i.test(String(level||'')))return ['الإسلامية'];if(/^JISS/i.test(String(level||'')))return ['المتوسطة'];return ['الثانوية'];}
+const JSS_SUBJECTS=['اللغة الإنجليزية','الرياضيات','اللغة النيجيرية','الهوسا','الإيغبو','اليوروبا','اللغة العربية','اللغة الفرنسية','العلوم الأساسية','التكنولوجيا الأساسية','التقنيات الرقمية','دراسات الحاسوب','علوم الحاسوب','التربية البدنية والصحية','التربية الرياضية','الدراسات الاجتماعية','المواطنة والتراث','التربية المدنية','الدين والقيم الوطنية','الدراسات الإسلامية','التربية المسيحية','الدراسات التجارية','الفنون الثقافية والإبداعية','الفنون الإبداعية','الدراسات ما قبل المهنية','العلوم الزراعية','الزراعة','إنتاج المحاصيل','تربية الماشية','تربية الحيوان','مصايد الأسماك','الاقتصاد المنزلي','الغذاء والتغذية','التاريخ النيجيري','التاريخ','الجغرافيا','التربية الأمنية','ريادة الأعمال','التوجيه الأخلاقي','الفنون الجميلة','الموسيقى','الرسم الفني','الأعمال الخشبية','الأعمال المعدنية','القرآن الكريم','القرآن','حفظ القرآن الكريم','التجويد','التفسير','الحديث الشريف','فقه','الفقه','الفقه الإسلامي','توحيد','التوحيد','العقيدة الإسلامية','العقيدة والتوحيد','أصول الفقه','الفرائض','أخلاق وآداب إسلامية','الأخلاق الإسلامية','الدعوة الإسلامية','السيرة النبوية','علوم القرآن','مصطلح الحديث','التربية الإسلامية'];
+const SS_SUBJECTS=['اللغة الإنجليزية','الرياضيات العامة','الرياضيات المتقدمة','اللغة النيجيرية','الهوسا','الإيغبو','اليوروبا','اللغة الفرنسية','اللغة العربية','التقنيات الرقمية','دراسات الحاسوب','علوم الحاسوب','معالجة البيانات','التربية المدنية','المواطنة والتراث','الدراسات الإسلامية','التربية المسيحية','الأحياء','الكيمياء','الفيزياء','العلوم الزراعية','الزراعة','تربية الماشية','تربية الحيوان','علوم الحيوان','إنتاج المحاصيل','زراعة المحاصيل','مصايد الأسماك','الجغرافيا','الاقتصاد','الحكومة','الأدب الإنجليزي','التاريخ','المحاسبة المالية','التجارة','التسويق','الممارسات المكتبية','الغذاء والتغذية','إدارة المنزل','الاقتصاد المنزلي','الرسم الفني','ميكانيكا السيارات','الكهرباء الأساسية','الكهرباء التطبيقية','تشييد المباني','الأعمال المعدنية','الأعمال الخشبية','الإلكترونيات','التربية البدنية والصحية','التربية الرياضية','الفنون البصرية','الفنون الجميلة','الموسيقى','السياحة','التأمين','إدارة المخازن','البيع','الاختزال','الطباعة الآلية','التبريد وتكييف الهواء','اللحام والتصنيع','تركيب الأنابيب','تصميم الملابس','فنون الطهي','التجميل','الصباغة والتبييض','مصايد الأسماك والاستزراع السمكي','الإنتاج الحيواني','إنتاج الماشية','الإرشاد الزراعي','الدراسات التقنية','تقنية وإدارة المكاتب','حفظ المخازن','تصنيع المنتجات الجلدية','التصوير الفوتوغرافي','الطباعة الفنية','إدارة البيانات','صيانة وإصلاح الحاسوب','التركيبات والصيانة الكهربائية','أعمال الراديو والتلفزيون والكهرباء','البناء والطوب والخرسانة','الطلاء والديكور','السباكة','اللحام','القرآن الكريم','القرآن','حفظ القرآن الكريم','التجويد','التفسير','الحديث الشريف','فقه','الفقه','الفقه الإسلامي','توحيد','التوحيد','العقيدة الإسلامية','العقيدة والتوحيد','أصول الفقه','الفرائض','أخلاق وآداب إسلامية','الأخلاق الإسلامية','الدعوة الإسلامية','السيرة النبوية','علوم القرآن','مصطلح الحديث','التربية الإسلامية'];
+function subjectsForClass(className){return /^(JISS|Islamic Primary)/i.test(String(className||''))?JSS_SUBJECTS:SS_SUBJECTS;}
+function subjectOptionsHTML(className,selected=''){const list=subjectsForClass(className);return `<option value="">Select subject</option>${list.map(x=>`<option value="${esc(x)}" ${sameKey(x,selected)?'selected':''}>${esc(x)}</option>`).join('')}`;}
+function classOptionsHTML(selectedId='',includeBlank=true){return `${includeBlank?'<option value="">Select class</option>':''}${db.classes.map(c=>`<option value="${esc(c.id)}" ${String(c.id)===String(selectedId)?'selected':''}>${esc(classLabel(c))}</option>`).join('')}`;}
+function classArmsForLevel(level){return armsForLevel(level);}
+function updateClassArmOptions(){const level=document.getElementById('cn')?.value,arm=document.getElementById('cs');if(!arm)return;const previous=arm.value;arm.innerHTML=classArmsForLevel(level).map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');if(classArmsForLevel(level).includes(previous))arm.value=previous;}
+function updateAssessmentClassSubjectOptions(){const sel=document.getElementById('assessmentClassId');const sub=document.getElementById('as');if(!sel||!sub)return;const c=db.classes.find(x=>x.id===sel.value);sub.innerHTML=subjectOptionsHTML(c?.name||'');}
+function updateExamClassSubjectOptions(){const sel=document.getElementById('ecid');const sub=document.getElementById('es');if(!sel||!sub)return;const c=db.classes.find(x=>x.id===sel.value);sub.innerHTML=subjectOptionsHTML(c?.name||'',sub.dataset.selected||'');}
+function updateQuestionClassSubjectOptions(){const sel=document.getElementById('qcid');const sub=document.getElementById('qs');if(!sel||!sub)return;const c=db.classes.find(x=>x.id===sel.value);sub.innerHTML=subjectOptionsHTML(c?.name||'');}
+function openClassModal(){
+ openModal('Set Up Class Details',`<div class="row"><div class="field"><label>الصف</label><select id="cn" onchange="updateClassArmOptions()">${CLASS_LEVELS.map(x=>`<option value="${x}">${x}</option>`).join('')}</select></div><div class="field"><label>Arm / Department</label><select id="cs">${classArmsForLevel(CLASS_LEVELS[0]).map(x=>`<option value="${x}">${x}</option>`).join('')}</select></div><div class="field"><label>العام الدراسي</label><input id="cse" value="${esc(db.session)}" placeholder="e.g. 2026/2027"></div><div class="field"><label>الفصل الدراسي</label><select id="ct"><option value="First Term" ${db.term==='First Term'?'selected':''}>First Term</option><option value="Second Term" ${db.term==='Second Term'?'selected':''}>Second Term</option><option value="Third Term" ${db.term==='Third Term'?'selected':''}>Third Term</option></select></div></div><div class="notice">Choose a class from JSS 1 to SS 3 and its arm. Student names and assessments will remain separated by class profile.</div><button class="primary" onclick="createClass()">Save Class Details</button>`);
+}
+function createClass(){
+ const name=document.getElementById('cn').value.trim(),section=document.getElementById('cs').value.trim(),session=document.getElementById('cse').value.trim(),term=document.getElementById('ct').value.trim();
+ if(!name)return toast('Enter the class name.');
+ const label=(name+' '+section).trim();
+ const exists=db.classes.find(x=>sameKey(classLabel(x),label)&&sameKey(x.session,session)&&sameKey(x.term,term));
+ if(exists){db.currentClassId=exists.id;save();closeModal();render();return toast('That class already exists and is now selected.');}
+ const c={id:'c_'+Date.now()+Math.random().toString(36).slice(2),name,section,session,term};db.classes.push(c);db.currentClassId=c.id;save();closeModal();render();toast('Class details saved.');
+}
+function switchClass(id){db.currentClassId=id;save();render()}
+function assignLegacyToCurrentClass(){const c=currentClass();if(!c)return toast('Select a class first.');if(!legacyStudents().length)return toast('No unassigned existing names found.');if(confirm(`Assign all ${legacyStudents().length} existing student names to ${classLabel(c)}?`)){db.students.forEach(s=>{if(!s.classId)s.classId=c.id});save();render();toast('Existing student names have been preserved and assigned to this class.')}}
+function openStudentModal(){
+ const c=currentClass();if(!c)return toast('Create/select the class details first.');
+ openModal(`Add Student — ${classLabel(c)}`,`<div class="notice">Class: <b>${esc(classLabel(c))}</b> • ${esc(c.session||'')} ${c.term?'• '+esc(c.term):''}</div><div class="row"><div class="field full"><label>Student full name</label><input id="sn"></div><div class="field"><label>الجنس</label><select id="sg"><option>Male</option><option>Female</option></select></div><div class="field"><label>Admission No. (optional)</label><input id="sa"></div></div><button class="primary" onclick="addStudent()">Save Student</button>`);
+}
+function addStudent(){
+ const c=currentClass();if(!c)return toast('Create/select the class details first.');
+ const name=document.getElementById('sn').value.trim();if(!name)return toast('Enter the student name.');
+ if(classStudents().some(s=>sameKey(s.name,name))){return toast('Duplicate name: a student with this exact name is already in this class. Please check the name.');}
+ db.students.push({id:Date.now().toString(36)+Math.random(),name,gender:document.getElementById('sg').value,admission:document.getElementById('sa').value.trim(),classId:c.id});
+ sortStudents();save();closeModal();render();toast('Student name saved.');
+}
+function editStudent(id){
+ const st=db.students.find(s=>String(s.id)===String(id));
+ if(!st)return toast('Student not found.');
+ openModal('Edit Student Name',`<div class="notice">Current name: <b>${esc(st.name)}</b></div><div class="field"><label>Student full name</label><input id="editStudentName" value="${esc(st.name)}" autocomplete="off"></div><button class="primary" onclick="saveStudentName('${st.id}')">Save Name</button>`);
+}
+function saveStudentName(id){
+ const st=db.students.find(s=>String(s.id)===String(id));
+ if(!st)return toast('Student not found.');
+ const name=document.getElementById('editStudentName').value.trim();
+ if(!name)return toast('Enter the student name.');
+ const c=currentClass();
+ if(c && classStudents().some(s=>String(s.id)!==String(id)&&sameKey(s.name,name)))return toast('Duplicate name: a student with this exact name is already in this class. Please check the name.');
+ st.name=name;
+ sortStudents();
+ save();closeModal();render();toast('Student name updated. Existing assessment records remain linked to the student.');
+}
+function openBulkModal(){
+ const c=currentClass();if(!c)return toast('Create/select the class details first.');
+ openModal(`Bulk Add Students — ${classLabel(c)}`,`<div class="notice">These names will be added only to <b>${esc(classLabel(c))}</b>. Existing names from other classes will not be mixed.</div><div class="field"><label>Student names — one per line</label><textarea id="bulk" rows="12" placeholder="Aisha Bello\nAminu Musa\nFatima Sani"></textarea></div><div class="field"><label>Gender for imported names</label><select id="bg"><option value="">Leave blank</option><option>Male</option><option>Female</option></select></div><button class="primary" onclick="bulkAdd()">Import & Save</button>`);
+}
+function bulkAdd(){
+ const c=currentClass();if(!c)return toast('Create/select the class details first.');
+ const names=document.getElementById('bulk').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean),g=document.getElementById('bg').value;
+ const existing=new Set(classStudents().map(s=>s.name.trim().toLowerCase()));let added=0,duplicates=0;
+ names.forEach(name=>{const key=name.trim().toLowerCase();if(existing.has(key)){duplicates++;return}db.students.push({id:Date.now().toString(36)+Math.random(),name,gender:g,admission:'',classId:c.id});existing.add(key);added++});
+ sortStudents();save();closeModal();render();toast(`${added} student${added===1?'':'s'} imported${duplicates?`; ${duplicates} exact duplicate name${duplicates===1?' was':'s were'} skipped in this class`:''}.`);
+}
+function sortStudents(){db.students.sort((a,b)=>String(a.name||'').trim().localeCompare(String(b.name||'').trim(),undefined,{sensitivity:'base',numeric:false}))}
+function deleteStudent(id){if(confirm('Delete this student from this class?')){db.students=db.students.filter(s=>s.id!==id);save();render();}}
+
+function sameKey(a,b){return String(a||'').trim().toLowerCase()===String(b||'').trim().toLowerCase()}
+function finalScoreKey(className,subject,session,term,studentId){return [className,subject,session,term,studentId].map(v=>String(v??'').trim().toLowerCase()).join('::')}
+function cumulativeCA(subject,className){
+  const selected=db.assessments.filter(a=>
+    (!subject || sameKey(a.subject,subject)) &&
+    (!className || sameKey(a.className,className))
+  );
+  const totals={};
+  db.students.forEach(s=>{
+    let earned=0,max=0;
+    selected.forEach(a=>{earned+=Number(a.scores?.[s.id]||0);max+=Number(a.maxMark||0)});
+    const caMax=Math.max(1,Number(db.caMaxMark)||30);totals[s.id]={earned,max,ca40:max?Math.min(caMax,(earned/max)*caMax):0};
+  });
+  return {selected,totals};
+}
+function normalizeAssessmentQuestionSet(a){
+  if(!a.questions || !a.questions.length) return;
+  const exists=db.questionSets.some(q=>q.sourceAssessmentId===a.id);
+  if(!exists){
+    db.questionSets.push({
+      id:'qs_'+a.id,
+      sourceAssessmentId:a.id,
+      source:'Assessment',
+      date:a.date,
+      subject:a.subject,
+      className:a.className,
+      questions:a.questions
+    });
+  }
+}
+function assessmentPage(){
+ const list=db.assessments.map((a,i)=>`<tr><td>${i+1}</td><td>${esc(a.date)}</td><td>${esc(a.className)}</td><td>${esc(a.subject)}</td><td>${esc(a.assessmentName)}</td><td>/${a.maxMark}</td><td>${a.questions?.length||0}</td><td><div class="actions"><button class="secondary small" onclick="viewAssessment(${i})">View / Print</button><button class="primary small" onclick="editAssessment(${i})">Edit Scores</button><button class="delete-assessment small" onclick="deleteAssessment(${i})">Delete Assessment</button></div></td></tr>`).join('');
+ return `<div class="card"><div class="section-title"><div style="display:flex;align-items:center;gap:10px"><button class="back-btn" onclick="showPage('dashboard')">← Return</button><h3>Continuous Assessment</h3></div><button class="primary" onclick="newAssessment()">+ New Assessment</button></div>
+ <div class="notice">Every assessment you save is automatically included in the student's cumulative CA record. The system continuously converts the accumulated CA performance to a maximum of <b>${Number(db.caMaxMark||30)} marks</b>. When examination marks are entered, the final total and grade update automatically.</div>
+ <div class="csv-panel"><h4>CSV Score Sheet for the Form Teacher</h4><p>Download a class-specific spreadsheet template for a teacher to fill, or export the completed subject CA /30 and examination /70 from the live result sheet. The exported CSV uses the columns <b>Student Name, Admission Number, CA, Exam</b> for the form teacher's report app.</p><div class="actions"><button class="secondary" onclick="openCsvTemplateModal()">Download Blank CSV Template</button><button class="secondary" onclick="openFinalResult()">Prepare Filled Scores & Export CSV</button></div></div>
+ <div class="section-title"><h3>Saved Assessments</h3></div><div class="table-wrap"><table class="table"><thead><tr><th>S/N</th><th>Date</th><th>الصف</th><th>Subject</th><th>Assessment</th><th>Maximum</th><th>Questions</th><th>Source</th><th></th></tr></thead><tbody>${list||`<tr><td colspan="9" class="empty">No assessment saved yet.</td></tr>`}</tbody></table></div>
+ <div class="section-title"><h3>Live Final Result</h3><button class="primary" onclick="openFinalResult()">Open CA /30 + Exam /70</button></div>
+ </div>`;
+}
+function csvCell(value){const v=String(value??'');return '"'+v.replace(/"/g,'""')+'"'}
+function downloadCsvFile(rows,filename){const csv='\uFEFF'+rows.map(row=>row.map(csvCell).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.style.display='none';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function chooseCsvFilename(defaultName){const answer=prompt('Enter a filename for the CSV file (without .csv if you prefer):',defaultName);if(answer===null)return null;let name=answer.trim().replace(/[\\/:*?"<>|]/g,'_').replace(/\.csv$/i,'').trim();if(!name)name=defaultName.replace(/\.csv$/i,'');return name+'.csv';}
+function safeFilePart(value){return String(value||'').trim().replace(/[^a-z0-9_-]+/gi,'_').replace(/^_+|_+$/g,'')||'Class'}
+function openCsvTemplateModal(){
+ const c=currentClass();if(!c)return toast('Create/select the class details first.');
+ if(!classStudents().length)return toast('Add students to the selected class first.');
+ openModal('Download Blank CSV Score Sheet',`<div class="notice">This creates a spreadsheet containing the registered students for <b>${esc(classLabel(c))}</b>. The teacher can open it in Excel or Google Sheets, fill the CA and Exam columns, save it as CSV, and send it to the form teacher.</div><div class="field"><label>Subject</label><select id="csvTemplateSubject">${subjectOptionsHTML(c.name)}</select></div><div class="field"><label>الفصل الدراسي</label><input id="csvTemplateTerm" value="${esc(c.term||db.term||'')}" placeholder="e.g. First Term"></div><div class="field"><label>العام الدراسي</label><input id="csvTemplateSession" value="${esc(c.session||db.session||'')}" placeholder="e.g. 2026/2027"></div><button class="primary" onclick="downloadBlankScoreTemplate()">Download CSV Template</button>`);
+}
+function downloadBlankScoreTemplate(){
+ const c=currentClass();if(!c)return toast('Create/select the class details first.');
+ const subject=document.getElementById('csvTemplateSubject')?.value.trim();const term=document.getElementById('csvTemplateTerm')?.value.trim()||c.term||db.term||'';const session=document.getElementById('csvTemplateSession')?.value.trim()||c.session||db.session||'';
+ if(!subject)return toast('Enter the subject name first.');
+ const students=classStudents().slice().sort((a,b)=>String(a.name||'').localeCompare(String(b.name||''),undefined,{sensitivity:'base'}));
+ const rows=[['Student Name','Admission Number','CA','Exam'],...students.map(st=>[st.name,st.admission||'','',''])];
+ const filename=`${safeFilePart(db.school)}_${safeFilePart(classLabel(c))}_${safeFilePart(subject)}_${safeFilePart(term)}_${safeFilePart(session)}_Score_Template.csv`;
+ downloadCsvFile(rows,filename);closeModal();toast('Blank CSV score sheet downloaded.');
+}
+function exportCompletedScoreCSV(){
+ const ctx=window.activeResultContext;if(!ctx||!ctx.subject||!ctx.className)return toast('Open the live result sheet for a subject first.');
+ // Read the live values as typed; convert Arabic/Persian numerals without changing the entered score.
+ const examInputs={};document.querySelectorAll('.exam-score').forEach(inp=>{examInputs[String(inp.dataset.student)]=String(inp.value??'').trim()});
+ const allStudents=(ctx.students||[]).slice().sort((a,b)=>String(a.name||'').localeCompare(String(b.name||''),undefined,{sensitivity:'base'}));
+ const rows=[['Student Name','Admission Number','CA','Exam']];
+ allStudents.forEach(st=>{const ca=Number(ctx.caById?.[st.id]||0);const raw=examInputs[String(st.id)]??'';const parsed=raw===''?null:Number(guidanceToLatin(raw));const mx=Number(db.examMaxMark||70);const exam=raw===''?'':(Number.isFinite(parsed)?Math.max(0,Math.min(mx,parsed)):'');rows.push([st.name,st.admission||st.adm||'',ca.toFixed(1),exam]);});
+ const schoolPart=safeFilePart(db.school||'The_Guidance_International_School');
+ const filename=`${schoolPart}_${safeFilePart(ctx.className)}_${safeFilePart(ctx.subject)}_${safeFilePart(ctx.term)}_${safeFilePart(ctx.session)}_CA_Scores.csv`;
+ const chosenFilename=chooseCsvFilename(filename);if(!chosenFilename)return;
+ downloadCsvFile(rows,chosenFilename);toast('Completed subject scores exported as CSV for the form teacher.');
+}
+
+function newAssessment(){
+ if(!db.classes.length)return toast('Create a class profile first in Students.');
+ const selected=currentClass()?.id||db.classes[0].id;const c=db.classes.find(x=>x.id===selected);
+ if(!c)return toast('Select a valid class profile.');
+ if(!db.students.some(st=>st.classId===c.id))return toast('Add students to the selected class first.');
+ openModal('New Continuous Assessment',`<div class="row"><div class="field"><label>الصف</label><select id="assessmentClassId" onchange="updateAssessmentClassSubjectOptions()">${classOptionsHTML(selected,false)}</select></div><div class="field"><label>Subject</label><select id="as">${subjectOptionsHTML(c.name)}</select></div><div class="field"><label>Assessment Type</label><select id="an"><option value="Test">Test</option><option value="Assignment">Assignment</option><option value="Classwork">Classwork</option><option value="Quiz">Quiz</option><option value="Practical">Practical</option><option value="Project">Project</option><option value="Oral Assessment">Oral Assessment</option><option value="Mid-Term Test">Mid-Term Test</option><option value="Research / Presentation">Research / Presentation</option><option value="Other">Other</option></select></div><div class="field"><label>This assessment is out of</label><input id="am" type="number" min="1" value="10"></div><div class="field full"><label>Questions administered in this assessment</label><textarea id="aq" rows="7" placeholder="Enter one question per line. When the assessment is saved, these questions are automatically added to the Question Bank."></textarea></div></div><div class="notice">Select the class and subject from the dropdowns. Each assessment contributes to the student's cumulative CA/${Number(db.caMaxMark||30)}.</div><button class="primary" onclick="createAssessment()">Continue to Scores</button>`);
+}
+function createAssessment(){
+ const max=Math.max(1,Number(document.getElementById('am').value)||0);
+ const questions=document.getElementById('aq').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+ const c=db.classes.find(x=>x.id===document.getElementById('assessmentClassId').value);if(!c)return toast('Select a class.');
+ db.currentClassId=c.id;const students=db.students.filter(st=>st.classId===c.id);if(!students.length)return toast('Add students to the selected class first.');
+ const a={id:'a_'+Date.now()+Math.random().toString(36).slice(2),date:new Date().toLocaleDateString(),classId:c.id,className:classLabel(c),subject:document.getElementById('as').value.trim(),assessmentName:document.getElementById('an').value.trim(),maxMark:max,studentCount:students.length,scores:{},questions};
+ if(!a.subject)return toast('Select a subject.');if(!a.assessmentName)return toast('Enter an assessment name.');
+ save();closeModal();showScoreEditor(a);
+}
+function grade(n){n=Number(n)||0;return n>=70?'A':n>=60?'B':n>=50?'C':n>=45?'D':n>=40?'E':'F'}
+function showScoreEditor(a,editingIndex=null){
+ sortStudents();
+ /* Editing always uses the class saved with the assessment. The score field itself is the saved value. */
+ const students=editingIndex!==null && a.classId ? db.students.filter(st=>st.classId===a.classId).sort((x,y)=>x.name.localeCompare(y.name)) : classStudents();
+ const isEditing=editingIndex!==null;
+ const savedScores=(a&&a.scores&&typeof a.scores==='object')?a.scores:{};
+ /* Build fallbacks by student name as well as ID. This keeps old saved records editable even if a student ID was normalized. */
+ const scoreByName={};
+ Object.keys(savedScores).forEach(k=>{ const st=db.students.find(s=>String(s.id)===String(k)); if(st) scoreByName[String(st.name).trim().toLowerCase()]=savedScores[k]; });
+ const rows=students.map((st,i)=>{
+   let raw;
+   if(Object.prototype.hasOwnProperty.call(savedScores,st.id)) raw=savedScores[st.id];
+   else if(Object.prototype.hasOwnProperty.call(savedScores,String(st.id))) raw=savedScores[String(st.id)];
+   else raw=scoreByName[String(st.name).trim().toLowerCase()];
+   const hasPrevious=raw!==undefined && raw!==null && raw!=='' && !Number.isNaN(Number(raw));
+   const shown=hasPrevious?guidanceFormatNumber(Number(raw),true):'';
+   return `<tr><td>${i+1}</td><td><span class="student-name">${esc(st.name)}</span></td><td><input class="score edit-score-box" data-id="${esc(st.id)}" type="text" inputmode="decimal" dir="auto" min="0" max="${a.maxMark}" value="${esc(shown)}" placeholder="" inputmode="decimal" autocomplete="off" aria-label="Score for ${esc(st.name)}"></td><td class="live-percent" data-for="${esc(st.id)}">${shown===''?'—':guidanceFormatNumber(((Number(guidanceToLatin(shown))/a.maxMark)*100).toFixed(1),true)}</td></tr>`;
+ }).join('');
+ const editNotice=isEditing?`<div class="edit-note">The existing saved score is already inside the <b>Score</b> field. Tap that number, erase it, type the new value, then tap <b>Save Changes</b>. There is no separate previous-score box.</div>`:`<div class="notice">Enter marks out of <b>${a.maxMark}</b>. You can leave a student blank and return later with <b>Edit Scores</b>. The latest saved value is used in the cumulative CA/${Number(db.caMaxMark||30)}.</div>`;
+ document.getElementById('main').innerHTML=`<div class="card"><div class="section-title"><div style="display:flex;align-items:center;gap:10px"><button class="back-btn" onclick="showPage('assessment')">← Return</button><h3>${esc(a.assessmentName)} — ${isEditing?'Edit Scores':'Score Entry'}</h3></div><button class="primary" onclick="saveAssessmentFromEditor(${isEditing?editingIndex:'null'})">${isEditing?'Save Changes':'Save Assessment'}</button></div>${editNotice}<div class="table-wrap"><table class="table score-entry-table"><thead><tr><th>S/N</th><th>Student</th><th>Score / ${a.maxMark}</th><th>%</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+ window.activeAssessment=a;window.activeAssessmentIndex=editingIndex;
+ document.querySelectorAll('.score').forEach(inp=>{inp.dir='rtl';inp.style.textAlign='center';const mx=Math.max(1,Number(a.maxMark)||1);const applyCALimit=()=>{const raw=inp.value.trim();const el=document.querySelector(`[data-for="${inp.dataset.id}"]`);if(raw===''){if(el)el.textContent='—';return}const original=Number(guidanceToLatin(raw));if(!Number.isFinite(original)){inp.value='';if(el)el.textContent='—';return}const n=Math.max(0,Math.min(mx,original));if(original>mx)toast('Score cannot exceed '+mx+'.');if(original<0)toast('Score cannot be below 0.');inp.value=guidanceFormatNumber(String(n),true);if(el)el.textContent=guidanceFormatNumber((n/mx*100).toFixed(1),true)};const guard=e=>{if(e.inputType&&e.inputType.startsWith('insert')){setTimeout(applyCALimit,0)}};inp.addEventListener('beforeinput',e=>{if(!e.data)return;const st=inp.selectionStart??inp.value.length,en=inp.selectionEnd??st,candidate=inp.value.slice(0,st)+e.data+inp.value.slice(en);const n=Number(guidanceToLatin(candidate));if(candidate.trim()!==''&&Number.isFinite(n)&&n>mx){e.preventDefault();toast('Maximum score is '+mx+'.')}});inp.addEventListener('input',applyCALimit);inp.addEventListener('change',applyCALimit);inp.addEventListener('blur',applyCALimit);inp.addEventListener('paste',()=>setTimeout(applyCALimit,0));inp.addEventListener('drop',()=>setTimeout(applyCALimit,0));});
+}
+
+function saveAssessmentFromEditor(editingIndex=null){
+ const a=window.activeAssessment;
+ const caLimit=Math.max(1,Number(a.maxMark)||1);a.scoreNumerals=a.scoreNumerals||{};document.querySelectorAll('.score').forEach(x=>{const id=x.dataset.id,raw=x.value.trim();if(raw===''){if(editingIndex!==null){delete a.scores[id];delete a.scoreNumerals[id]}return}const parsed=guidanceClampScore(raw,caLimit);if(parsed===null){x.value='';return}a.scoreNumerals[id]='ar';a.scores[id]=Math.max(0,Math.min(caLimit,parsed));x.value=guidanceFormatNumber(String(a.scores[id]),true)});
+ if(editingIndex===null){db.assessments.push(a);normalizeAssessmentQuestionSet(a);save();showPage('assessment');toast('Assessment saved and added to the live CA record.');}
+ else {db.assessments[editingIndex]=a;normalizeAssessmentQuestionSet(a);save();showPage('assessment');toast('Assessment scores updated successfully.');}
+}
+function editAssessment(i){const a=db.assessments[i];if(!a)return toast('Assessment not found.');showScoreEditor({...a,scores:{...(a.scores||{})}},i);}
+function deleteAssessment(i){
+ const a=db.assessments[i];
+ if(!a)return toast('Assessment not found.');
+ const label=`${a.assessmentName||'this assessment'}${a.subject?' — '+a.subject:''}`;
+ if(!confirm(`Delete \"${label}\"?\n\nThis will remove this assessment and all scores belonging to it. Students, other assessments and your classes will not be deleted.`))return;
+ db.assessments.splice(i,1);
+ save();
+ showPage('assessment');
+ toast('Assessment deleted. CA has been recalculated from the remaining assessments.');
+}
+function openFinalResult(){
+ if(!db.students.length)return toast('Add students first.');
+ openModal('Live Final Result',`<div class="row"><div class="field"><label>الصف</label><input id="fc" value="${esc(classLabel(currentClass()||{}))}"><div class="field"><label>Subject</label><input id="fs"></div><div class="field"><label>العام الدراسي</label><input id="fse" value="${esc(db.session)}"></div><div class="field"><label>الفصل الدراسي</label><input id="ft" value="${esc(db.term)}"></div></div><div class="notice">Only saved assessments belonging to the selected <b>class and subject</b> are combined. The current CA is converted to <b>/${Number(db.caMaxMark||30)}</b>. Enter the examination score directly in the EXAM column; no visible entry box is shown. Total and Grade update automatically.</div><button class="primary" onclick="buildFinalResult()">Open Result Sheet</button>`);
+}
+function buildFinalResult(){
+ sortStudents();
+ const subject=document.getElementById('fs').value.trim(), className=document.getElementById('fc').value.trim();
+ const data=cumulativeCA(subject,className);
+ if(!data.selected.length)return toast('No saved assessments found for this subject.');
+ const linkedIds=new Set(); data.selected.forEach(a=>Object.keys(a.scores||{}).forEach(id=>linkedIds.add(id))); const resultStudents=className&&currentClass()&&sameKey(classLabel(currentClass()),className)?classStudents():(linkedIds.size?db.students.filter(s=>linkedIds.has(s.id)):db.students.filter(s=>s.classId));
+ const selectedSession=document.getElementById('fse')?.value.trim()||db.session||'';const selectedTerm=document.getElementById('ft')?.value.trim()||db.term||'';
+ const rows=resultStudents.map((s,i)=>{const ca=data.totals[s.id].ca40;const savedExam=db.finalScores[finalScoreKey(className,subject,selectedSession,selectedTerm,s.id)]??'';const total=ca+(savedExam===''?0:Number(savedExam)||0);return `<tr><td>${i+1}</td><td><b>${esc(s.name)}</b></td><td><input class="result-input exam-score" data-student="${s.id}" type="text" inputmode="decimal" maxlength="6" autocomplete="off" dir="auto" value="${esc(guidanceFormatNumber(savedExam,true))}" placeholder="—"></td><td class="ca-live" data-student="${s.id}" data-value="${ca}">${guidanceFormatNumber(ca.toFixed(1),true)}</td><td class="final-total" data-total="${s.id}">${guidanceFormatNumber(total.toFixed(1),true)}</td><td class="final-grade" data-grade="${s.id}">${guidanceArabicGrade(total)}</td></tr>`}).join('');
+ const exportStudents=className&&currentClass()&&sameKey(classLabel(currentClass()),className)?classStudents():(linkedIds.size?db.students.filter(st=>linkedIds.has(st.id)):db.students.filter(st=>st.classId));
+ window.activeResultContext={subject,className,session:selectedSession,term:selectedTerm,students:exportStudents,caById:Object.fromEntries(exportStudents.map(st=>[st.id,data.totals[st.id]?.ca40||0]))};
+ closeModal();
+ document.getElementById('main').innerHTML=`<div class="card"><div class="print-head" style="display:block"><div class="school-print">${esc(db.school)}</div><div class="title-print">Students' Continuous Assessment Record</div><div style="font-size:12px;margin-top:5px">${esc(className)} • ${esc(subject)} • ${esc(db.session)} ${db.term?'• '+esc(db.term):''}</div></div>
+ <div class="section-title no-print"><div style="display:flex;align-items:center;gap:10px"><button class="back-btn" onclick="showPage('assessment')">← Return</button><h3>Live Final Result Sheet</h3></div><div class="actions"><button class="secondary" onclick="exportCompletedScoreCSV()">Export CSV for Form Teacher</button><button class="primary" onclick="window.print()">Print / Save PDF</button></div></div>
+ <div class="notice no-print">CA is calculated only from saved assessments for this class and subject. Enter examination marks directly in the EXAM column. Then select <b>Export CSV for Form Teacher</b> to download a file with Student Name, Admission Number, CA and Exam.</div>
+ <div class="table-wrap"><table class="table result-table"><thead><tr><th>S/N</th><th>Student</th><th>EXAM / ${Number(db.examMaxMark||70)}</th><th>CA / ${Number(db.caMaxMark||30)}</th><th>TOTAL / 100</th><th>GRADE</th></tr></thead><tbody>${rows}</tbody></table></div>
+ <div class="no-print" style="margin-top:15px"><button class="secondary" onclick="showPage('assessment')">← Return to Assessment</button></div></div>`;
+ document.querySelectorAll('.exam-score').forEach(inp=>{
+   const mx=Number(db.examMaxMark||70);
+   const normalizeExam=()=>{const raw=inp.value.trim();if(raw==='')return 0;const n=Number(guidanceToLatin(raw));if(!Number.isFinite(n)){inp.value='';return 0;}const v=Math.max(0,Math.min(mx,n));if(n>mx)toast('Examination score cannot exceed '+mx+'.');if(n<0)toast('Examination score cannot be below 0.');inp.value=guidanceFormatNumber(String(v),true);return v;};
+   const updateDisplay=()=>{const id=inp.dataset.student,ex=normalizeExam();const ca=Number(document.querySelector(`[data-student="${id}"].ca-live`)?.dataset.value||0);const total=ca+ex;const totalEl=document.querySelector(`[data-total="${id}"]`),gradeEl=document.querySelector(`[data-grade="${id}"]`);if(totalEl)totalEl.textContent=guidanceFormatNumber(total.toFixed(1),true);if(gradeEl)gradeEl.textContent=guidanceArabicGrade(total)};
+   const commit=()=>{const id=inp.dataset.student,key=finalScoreKey(className,subject,selectedSession,selectedTerm,id),raw=inp.value.trim();if(raw===''){delete db.finalScores[key];if(db.finalScoreNumerals)delete db.finalScoreNumerals[key];save();updateDisplay();return;}const n=Number(guidanceToLatin(raw));if(!Number.isFinite(n)){toast('Enter a valid examination score.');return;}const v=Math.max(0,Math.min(mx,n));if(n>mx)toast('Examination score cannot exceed '+mx+'.');db.finalScores[key]=v;db.finalScoreNumerals=db.finalScoreNumerals||{};db.finalScoreNumerals[key]='ar';inp.value=guidanceFormatNumber(String(v),true);save();updateDisplay();};
+   inp.addEventListener('beforeinput',e=>{if(!e.data)return;const st=inp.selectionStart??inp.value.length,en=inp.selectionEnd??st,candidate=inp.value.slice(0,st)+e.data+inp.value.slice(en);const n=Number(guidanceToLatin(candidate));if(candidate.trim()!==''&&Number.isFinite(n)&&n>mx){e.preventDefault();toast('Maximum examination mark is '+mx+'.');}});
+   inp.addEventListener('input',updateDisplay);inp.addEventListener('change',commit);inp.addEventListener('blur',commit);inp.addEventListener('paste',()=>setTimeout(()=>{updateDisplay();commit()},0));inp.addEventListener('drop',()=>setTimeout(()=>{updateDisplay();commit()},0));
+ });
+}
+function viewAssessment(i){
+ const a=db.assessments[i];if(!a)return toast('Assessment not found.');
+ const students=db.students.filter(s=>s.classId===a.classId).sort((x,y)=>x.name.localeCompare(y.name));
+ const rows=students.map((s,n)=>{let sc=a.scores[s.id];return `<tr><td>${n+1}</td><td>${esc(s.name)}</td><td>${sc===undefined?'—':guidanceFormatNumber(sc,true)}</td><td>${sc===undefined?'—':guidanceFormatNumber((sc/a.maxMark*100).toFixed(1),true)}</td></tr>`}).join('');
+ document.getElementById('main').innerHTML=`<div class="card"><div class="print-head"><div class="school-print">${esc(db.school)}</div><div class="title-print">Students' Continuous Assessment Record</div></div><div class="section-title no-print"><div style="display:flex;align-items:center;gap:10px"><button class="back-btn" onclick="showPage('assessment')">← Return</button><h3>${esc(a.assessmentName)}</h3></div><div class="actions"><button class="primary" onclick="editAssessment(${i})">Edit Scores</button><button class="delete-assessment" onclick="deleteAssessment(${i})">Delete Assessment</button><button class="secondary" onclick="window.print()">Print / Save PDF</button></div></div><div class="section-title"><h3>${esc(a.className)} • ${esc(a.subject)} • ${esc(a.date)} • /${a.maxMark}</h3></div><div class="table-wrap"><table class="table"><thead><tr><th>S/N</th><th>Student</th><th>Score / ${a.maxMark}</th><th>Equivalent %</th></tr></thead><tbody>${rows||`<tr><td colspan="4" class="empty">No students in this class.</td></tr>`}</tbody></table></div></div>`;
+}
+function questionsPage(){
+ const list=db.questionSets.map((q,i)=>`<tr><td>${i+1}</td><td>${esc(q.date)}</td><td>${esc(q.subject)}</td><td>${esc(q.className)}</td><td>${q.questions.length}</td><td>${esc(q.source||'Manual')}</td><td><div class="actions"><button class="secondary small" onclick="viewQuestions(${i})">Open</button><button class="primary small" onclick="editQuestionSet(${i})">Edit</button><button class="danger small" onclick="deleteQuestionSet(${i})">Delete</button></div></td></tr>`).join('');
+ return `<div class="card"><div class="section-title"><div style="display:flex;align-items:center;gap:10px"><button class="back-btn" onclick="showPage('dashboard')">← Return</button><h3>Question Bank</h3></div><button class="primary" onclick="newQuestionSet()">+ New Question Set</button></div><div class="notice">Save reusable question sets here. Each set keeps its date and can be reopened later.</div><div class="table-wrap" style="margin-top:15px"><table class="table"><thead><tr><th>S/N</th><th>Date</th><th>Subject</th><th>الصف</th><th>Questions</th><th>Source</th><th></th></tr></thead><tbody>${list||`<tr><td colspan="6" class="empty">No question sets yet.</td></tr>`}</tbody></table></div></div>`;
+}
+function newQuestionSet(){
+ if(!db.classes.length)return toast('Create a class profile first in Students.');const c=currentClass()||db.classes[0];
+ openModal('Create Question Set',`<div class="row"><div class="field"><label>الصف</label><select id="qcid" onchange="updateQuestionClassSubjectOptions()">${classOptionsHTML(c.id,false)}</select></div><div class="field"><label>Subject</label><select id="qs">${subjectOptionsHTML(c.name)}</select></div><div class="field full"><label>Questions — one question per line</label><textarea id="qq" rows="12" placeholder="1. Define scarcity.\n2. Explain opportunity cost.\n3. ..."></textarea></div></div><button class="primary" onclick="saveQuestionSet()">Save Question Set</button>`);
+}
+function saveQuestionSet(){
+ const questions=document.getElementById('qq').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);if(!questions.length)return toast('Enter at least one question.');
+ const c=db.classes.find(x=>x.id===document.getElementById('qcid').value);if(!c)return toast('Select a class.');const subject=document.getElementById('qs').value.trim();if(!subject)return toast('Select a subject.');db.questionSets.push({date:new Date().toLocaleDateString(),subject,className:classLabel(c),questions});save();closeModal();render();toast('Question set saved.');
+}
+function viewQuestions(i){
+ const q=db.questionSets[i];openModal(`${q.subject||'Question Set'} — ${q.date}`,`<div class="notice">${esc(q.className||'Class not specified')} • ${q.questions.length} questions</div><ol style="line-height:1.8;font-size:13px">${q.questions.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><button class="primary" onclick="window.print()">Print</button>`);
+}
+function editQuestionSet(i){
+ const q=db.questionSets[i];if(!q)return toast('Question set not found.');
+ openModal('Edit Question Set',`<div class="row"><div class="field"><label>Subject</label><input id="eqs" value="${esc(q.subject||'')}"></div><div class="field"><label>الصف</label><input id="eqc" value="${esc(q.className||'')}"></div><div class="field full"><label>Questions — one question per line</label><textarea id="eqq" rows="12">${esc((q.questions||[]).join('\n'))}</textarea></div></div><button class="primary" onclick="saveEditedQuestionSet(${i})">Save Changes</button>`);
+}
+function saveEditedQuestionSet(i){
+ const q=db.questionSets[i];if(!q)return toast('Question set not found.');
+ const questions=document.getElementById('eqq').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);if(!questions.length)return toast('Enter at least one question.');
+ q.subject=document.getElementById('eqs').value.trim();q.className=document.getElementById('eqc').value.trim();q.questions=questions;q.date=q.date||new Date().toLocaleDateString();
+ if(q.sourceExamId){const ex=db.exams.find(e=>e.id===q.sourceExamId);if(ex){ex.subject=q.subject;ex.className=q.className;ex.questions=[...questions];if(ex.objectiveQuestions||ex.essayQuestions){const mid=Math.ceil(questions.length/2);ex.objectiveQuestions=questions.slice(0,mid);ex.essayQuestions=questions.slice(mid);}}}
+ save();closeModal();render();toast('Question set updated successfully.');
+}
+function deleteQuestionSet(i){
+ const q=db.questionSets[i];if(!q)return toast('Question set not found.');
+ if(!confirm(`Delete this question set?\n\n${q.subject||'Question Set'} — ${q.date||''}`))return;
+ db.questionSets.splice(i,1);save();render();toast('Question set deleted.');
+}
+function terminalPage(){
+ const list=db.exams.map((e,i)=>`<tr><td>${i+1}</td><td>${esc(e.date||'')}</td><td>${esc(e.term||'')}</td><td>${esc(e.session||'')}</td><td>${esc(e.subject||'')}</td><td>${esc(e.className||'')}</td><td>${(e.objectiveQuestions||[]).length+(e.essayQuestions||[]).length || (e.questions||[]).length}</td><td><div class="actions"><button class="secondary small" onclick="viewExam(${i})">Open / Print</button><button class="primary small" onclick="editExam(${i})">Edit</button><button class="danger small" onclick="deleteExam(${i})">Delete</button></div></td></tr>`).join('');
+ return `<div class="card"><div class="section-title"><div style="display:flex;align-items:center;gap:10px"><button class="back-btn" onclick="showPage('dashboard')">← Return</button><h3>Final Examination</h3></div><button class="primary" onclick="newExam()">+ Set Final Examination</button></div><div class="notice">Set the examination details and questions first. The printed paper will use the school examination format, including term, session, class, date, time and instructions.</div><div class="table-wrap" style="margin-top:15px"><table class="table"><thead><tr><th>S/N</th><th>Saved Date</th><th>الفصل الدراسي</th><th>العام الدراسي</th><th>Subject</th><th>الصف</th><th>Questions</th><th></th></tr></thead><tbody>${list||`<tr><td colspan="8" class="empty">No final examination saved yet.</td></tr>`}</tbody></table></div></div>`;
+}
+function newExam(){
+ const c=currentClass();if(!c)return toast('Create/select the class details first.');
+ if(!classStudents().length)return toast('Add students to the selected class first.');
+ openExamEditor(null);
+}
+function openExamEditor(editingIndex){
+ if(!db.classes.length)return toast('Create a class profile first in Students.');
+ const e=editingIndex===null?null:db.exams[editingIndex];if(editingIndex!==null&&!e)return toast('Examination not found.');
+ const c=(e&&db.classes.find(x=>x.id===e.classId||sameKey(classLabel(x),e.className)))||currentClass()||db.classes[0];
+ const today=e?.examDate||new Date().toISOString().slice(0,10);
+ const objective=e?.objectiveQuestions?.length?e.objectiveQuestions:(e?.questions||[]);
+ const essay=e?.essayQuestions||[];
+ openModal(e?'Edit Final Examination':'Set Final Examination',`<div class="notice"><b>Examination setup</b><br>Fill in the details below. They will appear automatically on the printed examination paper.</div><div class="row">
+ <div class="field"><label>الفصل الدراسي</label><input id="et" value="${esc(e?.term||c.term||db.term)}" placeholder="e.g. Second Term"></div>
+ <div class="field"><label>العام الدراسي</label><input id="ese" value="${esc(e?.session||c.session||db.session)}" placeholder="e.g. 2024/2025 Academic Session"></div>
+ <div class="field"><label>الصف</label><select id="ecid" onchange="updateExamClassSubjectOptions()">${classOptionsHTML(c.id,false)}</select></div>
+ <div class="field"><label>Subject</label><select id="es" data-selected="${esc(e?.subject||'')}">${subjectOptionsHTML(c.name,e?.subject||'')}</select></div>
+ <div class="field"><label>Date</label><input id="ed" type="date" value="${esc(today)}"></div>
+ <div class="field"><label>Time</label><input id="ei" type="text" value="${esc(e?.time||'')}" placeholder="e.g. 10:00 AM – 12:00 PM"></div>
+ <div class="field full"><label>Instructions</label><textarea id="ein" rows="4" placeholder="e.g. Answer all the questions in Section A and any three in Section B.">${esc(e?.instructions||'')}</textarea></div>
+ <div class="field full"><label>Section A — Objective Questions</label><textarea id="eo" rows="9" placeholder="Enter one objective question per line.">${esc(objective.join('\n'))}</textarea></div>
+ <div class="field full"><label>Section B — Essay Questions</label><textarea id="ee" rows="8" placeholder="Enter one essay question per line.">${esc(essay.join('\n'))}</textarea></div>
+ </div><button class="primary" onclick="saveExam(${editingIndex===null?'null':editingIndex})">${e?'Save Changes':'Save Final Examination'}</button>`);
+}
+function saveExam(editingIndex=null){
+ const term=document.getElementById('et').value.trim(),session=document.getElementById('ese').value.trim(),selectedClass=db.classes.find(x=>x.id===document.getElementById('ecid').value),className=selectedClass?classLabel(selectedClass):'',subject=document.getElementById('es').value.trim(),date=document.getElementById('ed').value,time=document.getElementById('ei').value.trim(),instructions=document.getElementById('ein').value.trim();
+ const objectiveQuestions=document.getElementById('eo').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+ const essayQuestions=document.getElementById('ee').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+ if(!selectedClass)return toast('Select a class.');if(!subject)return toast('Select a subject.');
+ if(!objectiveQuestions.length&&!essayQuestions.length)return toast('Enter at least one objective or essay question.');
+ if(editingIndex===null){
+  const exam={id:'e_'+Date.now()+Math.random().toString(36).slice(2),date:date?new Date(date+'T00:00:00').toLocaleDateString():new Date().toLocaleDateString(),examDate:date,term,session,className,subject,time,instructions,objectiveQuestions,essayQuestions,questions:[...objectiveQuestions,...essayQuestions],classId:selectedClass.id};
+  db.exams.push(exam);db.questionSets.push({id:'qs_'+exam.id,sourceExamId:exam.id,source:'Final Examination',date:exam.date,subject:exam.subject,className:exam.className,questions:exam.questions});
+  save();closeModal();render();toast('Final examination saved and added to the Question Bank.');
+ } else {
+  const exam=db.exams[editingIndex];if(!exam)return toast('Examination not found.');
+  exam.date=date?new Date(date+'T00:00:00').toLocaleDateString():new Date().toLocaleDateString();exam.examDate=date;exam.term=term;exam.session=session;exam.className=className;exam.classId=selectedClass.id;exam.subject=subject;exam.time=time;exam.instructions=instructions;exam.objectiveQuestions=objectiveQuestions;exam.essayQuestions=essayQuestions;exam.questions=[...objectiveQuestions,...essayQuestions];
+  const linked=db.questionSets.find(q=>q.sourceExamId===exam.id);if(linked){linked.date=exam.date;linked.subject=exam.subject;linked.className=exam.className;linked.questions=exam.questions;}
+  save();closeModal();render();toast('Final examination updated successfully.');
+ }
+}
+function editExam(i){openExamEditor(i)}
+function deleteExam(i){
+ const exam=db.exams[i];if(!exam)return toast('Examination not found.');
+ if(!confirm(`Delete this final examination?\n\n${exam.subject||'Final Examination'} — ${exam.className||''}`))return;
+ const id=exam.id;db.exams.splice(i,1);db.questionSets=db.questionSets.filter(q=>q.sourceExamId!==id);save();render();toast('Final examination deleted.');
+}
+function examQuestions(e){
+ const objective=(e.objectiveQuestions&&e.objectiveQuestions.length)?e.objectiveQuestions:(e.questions||[]);
+ const essay=(e.essayQuestions&&e.essayQuestions.length)?e.essayQuestions:[];
+ return {objective,essay};
+}
+function viewExam(i){
+ const e=db.exams[i];if(!e)return toast('Examination not found.');
+ const q=examQuestions(e);
+ const titleTerm=(e.term||'').trim();
+ const titleSession=(e.session||'').trim();
+ const examTitle=titleTerm&&titleSession?`END OF ${esc(titleTerm).toUpperCase()} EXAMINATIONS, ${esc(titleSession).toUpperCase()} ACADEMIC SESSION`:titleSession?`END OF EXAMINATIONS, ${esc(titleSession).toUpperCase()} ACADEMIC SESSION`:'FINAL EXAMINATION';
+ const objectiveHtml=q.objective.length?`<div class="exam-section-title">SECTION A</div><div class="exam-section-sub">OBJECTIVE</div><ol>${q.objective.map(x=>`<li class="exam-question">${esc(x)}</li>`).join('')}</ol>`:'';
+ const essayHtml=q.essay.length?`<div class="exam-section-title">SECTION B (ESSAY)</div><div class="exam-section-sub">Answer any three (3) questions</div><ol>${q.essay.map(x=>`<li class="exam-question exam-essay">${esc(x)}</li>`).join('')}</ol>`:'';
+ const instructions=e.instructions?`<div class="exam-instructions"><span class="exam-label">INSTRUCTIONS:</span> ${esc(e.instructions)}</div>`:'';
+ const dateDisplay=e.examDate?new Date(e.examDate+'T00:00:00').toLocaleDateString():e.date||'';
+ document.getElementById('main').innerHTML=`<div class="card"><div class="exam-print-actions actions no-print"><button class="secondary" onclick="showPage('terminal')">← Return</button><button class="primary" onclick="window.print()">Print / Save PDF</button></div><div class="exam-paper"><div class="exam-paper-head"><div class="exam-paper-school">${esc(db.school)}</div><div class="exam-paper-title">${examTitle}</div></div><div class="exam-meta"><div class="exam-meta-row"><span><span class="exam-label">SUBJECT:</span> ${esc(e.subject||'')}</span><span><span class="exam-label">CLASS:</span> ${esc(e.className||'')}</span></div><div class="exam-meta-row"><span><span class="exam-label">DATE:</span> ${esc(dateDisplay)}</span><span><span class="exam-label">TIME:</span> ${esc(e.time||'')}</span></div></div>${instructions}${objectiveHtml}${essayHtml}</div></div>`;
+}
+function teacherSignupPage(){
+ if(!canManageAccounts())return '<div class="card"><div class="error">Authorised management access required.</div></div>';
+ const isAdmin=currentUser.role==='admin';
+ const rows=db.accounts.map((a,i)=>{const canManage=isAdmin||a.role==='teacher';const expired=accountExpired(a),active=a.active!==false&&!expired;const status=expired?'Expired':active?'Active':'Inactive';const actions=canManage?`<button class="secondary small" onclick="toggleTeacherAccount('${esc(a.id)}')">${active?'Deactivate':'Activate'}</button> <button class="danger small" onclick="deleteTeacherAccount('${esc(a.id)}')">Delete</button>`:'<span class="small" style="color:var(--muted)">Managed by Administrator</span>';return `<tr><td>${i+1}</td><td><b>${esc(a.displayName||a.username)}</b></td><td>${esc(a.username)}</td><td>${esc(roleLabel(a.role||'teacher'))}</td><td><span class="status-pill">${status}</span></td><td>${esc(a.expiryDate||'No expiry')}</td><td>${actions}</td></tr>`;}).join('');
+ return `<div class="card" style="border-top:5px solid var(--blue);margin-bottom:16px"><h2 style="margin:0 0 7px;color:var(--navy)">👥 User Access Management</h2><p style="color:var(--muted);font-size:13px;line-height:1.6;margin:0">There is no public teacher registration. Only the Administrator, Principal, or Examinations Officer can manage access. The Principal and Examinations Officer can create, deactivate, reactivate, and delete teacher accounts.</p></div>
+ <div class="card" style="margin-bottom:16px"><h3 style="margin-top:0;color:var(--navy)">Create an Account</h3><div class="row"><div class="field"><label>Full name</label><input id="teacherDisplayName" placeholder="e.g. Amina Musa" autocomplete="name"></div><div class="field"><label>اسم المستخدم</label><input id="teacherUsername" placeholder="e.g. amina.musa" autocomplete="off"></div><div class="field"><label>Account role</label><select id="teacherRole"><option value="teacher">Teacher</option>${isAdmin?'<option value="principal">Principal</option><option value="exams_officer">Examinations Officer</option>':''}</select></div><div class="field"><label>Password (at least 6 characters)</label><input id="teacherPassword" type="password" autocomplete="new-password" placeholder="Create a strong password"></div><div class="field"><label>Optional expiry date</label><input id="teacherExpiry" type="date"></div></div><button class="primary" onclick="createTeacherAccount()">＋ Create Account</button><div class="notice" style="margin-top:12px">Give login details privately. Accounts are stored in this browser and do not automatically transfer to another device. Expiry dates are checked when a user logs in.</div></div>
+ <div class="card"><h3 style="margin-top:0;color:var(--navy)">Registered Accounts</h3><div class="table-wrap"><table class="table"><thead><tr><th>S/N</th><th>Name</th><th>Username</th><th>Role</th><th>Status</th><th>Expiry</th><th>Actions</th></tr></thead><tbody>${rows||'<tr><td colspan="7" class="empty">No accounts have been created yet.</td></tr>'}</tbody></table></div><div class="notice" style="margin-top:12px">Offline limitation: account changes apply only to this browser/device. They cannot remotely revoke access on another device or to a separately copied app. Export backups regularly.</div></div>`;
+}
+
+function deleteClassProfile(id){
+ const c=db.classes.find(x=>String(x.id)===String(id));if(!c)return toast('Class profile not found.');
+ const label=classLabel(c);const n=db.students.filter(x=>String(x.classId)===String(id)).length;const a=db.assessments.filter(x=>String(x.classId)===String(id)||sameKey(x.className,label)).length;
+ if(!confirm(`Delete class profile "${label}"? This will also delete its ${n} student record(s), ${a} assessment(s), related question sets, examination records and saved final scores. Export a backup first if you need to keep these records.`))return;
+ const studentIds=new Set(db.students.filter(x=>String(x.classId)===String(id)).map(x=>String(x.id)));
+ db.students=db.students.filter(x=>String(x.classId)!==String(id));
+ db.assessments=db.assessments.filter(x=>String(x.classId)!==String(id)&&!sameKey(x.className,label));
+ db.questionSets=(db.questionSets||[]).filter(x=>String(x.classId||'')!==String(id)&&!sameKey(x.className,label));
+ db.exams=(db.exams||[]).filter(x=>String(x.classId||'')!==String(id)&&!sameKey(x.className,label));
+ Object.keys(db.finalScores||{}).forEach(k=>{if(k.toLowerCase().startsWith(label.toLowerCase()+'::')||[...studentIds].some(sid=>k.toLowerCase().endsWith('::'+sid.toLowerCase())))delete db.finalScores[k];});
+ db.classes=db.classes.filter(x=>String(x.id)!==String(id));if(String(db.currentClassId)===String(id))db.currentClassId=db.classes[0]?.id||'';
+ save();render();toast('Class profile and its linked records deleted.');
+}
+function settingsPage(){
+ const classRows=db.classes.map((c,i)=>`<tr><td>${i+1}</td><td><b>${esc(classLabel(c))}</b></td><td>${esc(c.session||'')}</td><td>${esc(c.term||'')}</td><td>${c.id===db.currentClassId?'Current':'—'}</td><td><button class="danger small" onclick="deleteClassProfile('${c.id}')">Delete Class</button></td></tr>`).join('');
+ return `<div class="card" style="margin-bottom:15px"><div class="section-title"><h3 style="margin:0;color:var(--navy)">Class Profiles</h3><button class="primary" onclick="openClassModal()">+ Add Class</button></div><div class="notice">Create a separate class profile for every class you teach. Student names, assessments and results are kept separate by class.</div><div class="table-wrap"><table class="table"><thead><tr><th>S/N</th><th>الصف</th><th>العام الدراسي</th><th>الفصل الدراسي</th><th>Status</th><th>Manage</th></tr></thead><tbody>${classRows||`<tr><td colspan="6" class="empty">No class profiles created yet.</td></tr>`}</tbody></table></div></div><div class="kpi-grid"><div class="card"><div style="margin-bottom:12px"><button class="back-btn" onclick="showPage('dashboard')">← Return</button></div><h3 style="margin-top:0;color:var(--navy)">المدرسة والعرض</h3><div class="field"><label>اسم المدرسة (ثابت)</label><input id="setSchool" value="مدرسة الهدى العالية" readonly disabled aria-readonly="true" title="School name is fixed for this app."></div><div class="field"><label>عنوان التطبيق</label><input id="setTitle" value="${esc(db.title)}"></div><div class="field"><label>الميسّر / المعلّم</label><input id="setFac" value="${esc(db.facilitator)}"></div><div class="field"><label>العام الدراسي</label><input id="setSession" value="${esc(db.session)}" placeholder="e.g. 2026/2027"></div><div class="field"><label>الفصل الدراسي</label><input id="setTerm" value="${esc(db.term)}" placeholder="e.g. First Term"></div><div class="row"><div class="field"><label>Continuous Assessment Maximum</label><input value="30 marks" readonly></div><div class="field"><label>Terminal Examination Maximum</label><input value="70 marks" readonly></div></div><div class="notice">The school scoring scheme is fixed at CA /30 + Examination /70 = Total /100. Manual score entry is limited to the relevant maximum.</div><button class="primary" onclick="saveSettings()">Save Display Settings</button></div>
+ <div class="card"><h3 style="margin-top:0;color:var(--navy)">School Logo</h3><img src="${logoSrc()}" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:4px solid #edf2f6"><p class="small" style="color:var(--muted)">شعار أكاديمية ديمة مضمّن في التطبيق ويعمل دون اتصال بالإنترنت. لا يحتاج المعلمون إلى رفع الشعار.</p></div>
+ <div class="card"><h3 style="margin-top:0;color:var(--navy)">Admin Security</h3><div class="field"><label>اسم المستخدم</label><input id="setUser" value="${esc(db.username)}"></div><div class="field"><label>New Password</label><input id="setPass" type="password" placeholder="Leave unchanged if blank"></div><button class="primary" onclick="saveSecurity()">Update Login</button><div class="notice" style="margin-top:12px">Change the default administrator login before use. The offline app provides a local access barrier, not server-side security. Export regular backups.</div></div>
+ <div class="card"><h3 style="margin-top:0;color:var(--navy)">Data Management</h3><button class="secondary" onclick="exportData()">Export Backup</button> <button class="secondary" onclick="document.getElementById('importFile').click()">Import Backup</button><input id="importFile" type="file" accept=".json" style="display:none" onchange="importData(event)"><button class="danger" onclick="resetData()">Reset All Local Data</button><p class="small" style="color:var(--muted);margin-top:12px">Keep backups because offline data is stored only on this device/browser.</p></div></div>`;
+}
+function saveSettings(){db.school=defaults.school;db.title=document.getElementById('setTitle').value.trim()||defaults.title;db.facilitator=document.getElementById('setFac').value.trim();db.session=document.getElementById('setSession').value.trim();db.term=document.getElementById('setTerm').value.trim();db.caMaxMark=30;db.examMaxMark=70;save();applySchoolTheme();document.getElementById('loginSchool').textContent=db.school;document.getElementById('sideSchool').textContent=db.school;document.getElementById('sideLogo').src=logoSrc();document.getElementById('loginLogo').src=logoSrc();toast('Display settings and score limits saved.');render()}
+function saveLogo(){const f=document.getElementById('logoFile').files[0];if(!f)return toast('Choose a logo first.');const r=new FileReader();r.onload=()=>{db.logo=r.result;save();applySchoolTheme();document.getElementById('loginLogo').src=logoSrc();document.getElementById('sideLogo').src=logoSrc();toast('Logo saved offline. School colours updated from the logo.');render()};r.readAsDataURL(f)}
+function saveSecurity(){if(currentUser?.role!=='admin')return toast('Administrator access required.');const u=document.getElementById('setUser').value.trim(),p=document.getElementById('setPass').value;if(!u)return toast('Username cannot be empty.');if(p&&p.length<6)return toast('Use a password with at least 6 characters.');if(db.accounts.some(a=>String(a.username).toLowerCase()===u.toLowerCase()))return toast('That username is already used by a teacher account.');if(!p&&u===db.username)return toast('No login change was made.');db.username=u;if(p)db.password=p;const auth={username:db.username,password:db.password};localStorage.setItem(KEY+'_auth',JSON.stringify(auth));localStorage.setItem(KEY,JSON.stringify(db));document.getElementById('setPass').value='';document.getElementById('username').value=db.username;document.getElementById('password').value='';toast('Administrator login details saved. Log out and sign in again with the new credentials.')}
+async function createTeacherAccount(){if(!canManageAccounts())return toast('Authorised management access required.');const name=document.getElementById('teacherDisplayName').value.trim(),u=document.getElementById('teacherUsername').value.trim(),p=document.getElementById('teacherPassword').value,role=document.getElementById('teacherRole').value,expiryDate=document.getElementById('teacherExpiry').value;if(!name||!u||!p)return toast('Enter the full name, username and password.');if(role!=='teacher'&&currentUser.role!=='admin')return toast('Only the Administrator can create management accounts.');if(u.toLowerCase()===db.username.toLowerCase()||db.accounts.some(a=>String(a.username).toLowerCase()===u.toLowerCase()))return toast('That username already exists. Choose another.');if(p.length<6)return toast('Password must be at least 6 characters.');if(expiryDate&&new Date(expiryDate+'T23:59:59')<new Date())return toast('Expiry date must be today or a future date.');const passwordHash=await hashTeacherPassword(p);db.accounts.push({id:'account_'+Date.now().toString(36)+Math.random().toString(36).slice(2,7),username:u,displayName:name,passwordHash,role,active:true,expiryDate:expiryDate||'',createdAt:new Date().toISOString()});save();render();toast(role==='teacher'?'Teacher account created. Give the login details privately.':roleLabel(role)+' account created.');}
+function toggleTeacherAccount(id){if(!canManageAccounts())return toast('Authorised management access required.');const a=db.accounts.find(x=>x.id===id);if(!a)return;if(currentUser.role!=='admin'&&a.role!=='teacher')return toast('The Principal and Examinations Officer may only change teacher access.');a.active=a.active===false?true:false;save();render();toast((a.active?'Activated ':'Deactivated ')+(a.displayName||a.username)+'.');}
+function deleteTeacherAccount(id){if(!canManageAccounts())return toast('Authorised management access required.');const a=db.accounts.find(x=>x.id===id);if(!a)return;if(currentUser.role!=='admin'&&a.role!=='teacher')return toast('The Principal and Examinations Officer may only remove teacher accounts.');if(!confirm('Delete the account for '+(a.displayName||a.username)+'? This does not delete students or scores.'))return;db.accounts=db.accounts.filter(x=>x.id!==id);save();render();toast('Account deleted.');}
+function exportData(){const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CA_Record_Backup.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exported.')}
+function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);db={...defaults,...x};save();location.reload()}catch(err){toast('Invalid backup file.')}};r.readAsText(f)}
+function resetData(){if(confirm('This will delete all students, assessments, questions and settings stored on this device. Continue?')){localStorage.removeItem(KEY);localStorage.removeItem(KEY+'_logged');localStorage.removeItem(KEY+'_auth');location.reload()}}
+function printStudents(){sortStudents();document.getElementById('main').innerHTML=`<div class="card"><div class="print-head" style="display:block"><div class="school-print">${esc(db.school)}</div><div class="title-print">Student Register</div></div><div class="actions no-print" style="margin-bottom:15px"><button class="secondary" onclick="showPage('students')">Back</button><button class="primary" onclick="window.print()">Print / Save PDF</button></div><table class="table"><thead><tr><th>S/N</th><th>اسم الطالب</th><th>الجنس</th><th>Admission No.</th></tr></thead><tbody>${db.students.map((s,i)=>`<tr><td>${i+1}</td><td>${esc(s.name)}</td><td>${esc(s.gender||'')}</td><td>${esc(s.admission||'')}</td></tr>`).join('')}</tbody></table></div>`}
+function openModal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=body;document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=37').catch(()=>{}));}
+init();
+</script>
+<script>
+/* محوّل الواجهة العربية. Technical terms are shown bilingually where useful. */
+(function(){
+const T={
+'Welcome':'مرحبًا','Academic records workspace':'مساحة السجلات الأكاديمية','Session not set':'لم تُحدَّد السنة الدراسية','Offline Ready':'جاهز للعمل دون إنترنت (Offline)',
+'Total Students':'إجمالي الطلاب','Male':'ذكور','Female':'إناث','Students':'الطلاب','Student Register':'سجل الطلاب','Student Name':'اسم الطالب','Student full name':'الاسم الكامل للطالب','Gender':'الجنس','Admission No.':'رقم القيد','Admission Number':'رقم القيد','Action':'الإجراء','Actions':'الإجراءات','Manage':'إدارة','Current Class':'الفصل الحالي','Select class':'اختر الفصل','Select subject':'اختر المادة','Select student':'اختر الطالب','Class':'الفصل','Class details must be set first.':'يجب إعداد بيانات الفصل أولًا.','Students are kept separately for each class, so one teacher can manage several classes without mixing their records.':'تُحفظ بيانات الطلاب لكل فصل على حدة، حتى يتمكن المعلم من إدارة عدة فصول دون خلط سجلاتها.','No class has been created yet. Create the class details before entering students.':'لم يتم إنشاء أي فصل بعد. أنشئ بيانات الفصل قبل إدخال الطلاب.','Set Up Class Details':'إعداد بيانات الفصل','Arm / Department':'القسم','Session':'السنة الدراسية','Term':'الفصل الدراسي','First Term':'الفصل الدراسي الأول','Second Term':'الفصل الدراسي الثاني','Third Term':'الفصل الدراسي الثالث','Save Class Details':'حفظ بيانات الفصل','Create a separate class profile for every class you teach. Student names, assessments and results are kept separate by class.':'أنشئ ملفًا مستقلًا لكل فصل تدرّسه. تُحفظ أسماء الطلاب والتقويمات والنتائج منفصلة لكل فصل.','Choose a class from JSS 1 to SS 3 and its arm. Student names and assessments will remain separated by class profile.':'اختر الصف والقسم المناسبين. ستظل أسماء الطلاب والتقويمات منفصلة حسب ملف الفصل.','Enter the class name.':'أدخل اسم الفصل.','That class already exists and is now selected.':'هذا الفصل موجود بالفعل وتم اختياره.','Class details saved.':'تم حفظ بيانات الفصل.','Student names have been preserved and assigned to this class.':'تم الاحتفاظ بأسماء الطلاب وإسنادها إلى هذا الفصل.','Add Student':'إضافة طالب','Bulk Add':'إضافة جماعية','Edit Name':'تعديل الاسم','Delete':'حذف','Delete Class':'حذف الفصل','Delete Class Profile':'حذف ملف الفصل','Return':'رجوع','Print List':'طباعة القائمة','No students added to this class yet.':'لم تتم إضافة طلاب إلى هذا الفصل بعد.','Assign Existing Names':'إسناد الأسماء الموجودة','Print':'طباعة','Save':'حفظ','Cancel':'إلغاء','Close':'إغلاق','Search':'بحث','Search students':'البحث عن الطلاب','Dashboard':'لوحة التحكم (Dashboard)','Administrator':'المسؤول','Admin':'المسؤول','Settings':'الإعدادات (Settings)','App Settings':'إعدادات التطبيق','School Settings':'إعدادات المدرسة','School & Display Settings':'إعدادات المدرسة والعرض','School Information':'بيانات المدرسة','Facilitator':'المعلم المسؤول','Facilitator Name':'اسم المعلم المسؤول','Title':'العنوان','School Name':'اسم المدرسة','Address':'العنوان','Motto':'الشعار','Save Settings':'حفظ الإعدادات','Update Settings':'تحديث الإعدادات','Change Password':'تغيير كلمة المرور','Username':'اسم المستخدم','Password':'كلمة المرور','Login':'تسجيل الدخول','Logout':'تسجيل الخروج','Forgot Password':'نسيت كلمة المرور','Continuous Assessment':'التقويم المستمر (Continuous Assessment)','Assessment':'التقويم','New Assessment':'تقويم جديد','+ New Assessment':'+ تقويم جديد','Assessment Name':'اسم التقويم','Date':'التاريخ','Maximum Mark':'الدرجة القصوى','Questions':'الأسئلة','Question':'السؤال','Add Question':'إضافة سؤال','Edit Scores':'تعديل الدرجات','View / Print':'عرض / طباعة','Delete Assessment':'حذف التقويم','Every assessment you save is automatically included in the student\'s cumulative CA record. The system continuously converts the accumulated CA performance to a maximum of':'يُضاف كل تقويم تحفظه تلقائيًا إلى سجل التقويم المستمر للطالب. ويحوّل النظام أداء الطالب إلى درجة قصوى قدرها','marks':'درجة','Question Bank':'بنك الأسئلة (Question Bank)','Question bank':'بنك الأسئلة','Terminal Examination':'الامتحان النهائي (Terminal Examination)','Final Examination':'الامتحان النهائي','Examination':'الامتحان','Exam':'الامتحان','Create Exam':'إنشاء امتحان','Exam Name':'اسم الامتحان','Final Scores':'الدرجات النهائية','Results':'النتائج','Master Result Sheet':'كشف النتائج العام','Report Sheet':'كشف الدرجات','Generate Report':'إنشاء التقرير','Print Report':'طباعة التقرير','Grade':'التقدير','Total':'المجموع','Average':'المعدل','Position':'الترتيب','Subject':'المادة','CA Score':'درجة التقويم المستمر','Exam Score':'درجة الامتحان','Total Score':'الدرجة الكلية','S/N':'م','Status':'الحالة','Current':'الحالي','No class profiles created yet.':'لم يتم إنشاء ملفات للفصول بعد.','Create class details before entering students.':'أنشئ بيانات الفصل قبل إدخال الطلاب.','Offline Mode':'وضع عدم الاتصال','Offline mode':'وضع عدم الاتصال','Backup':'نسخة احتياطية','Restore':'استعادة','Export':'تصدير','Import':'استيراد','CSV score exchange':'تبادل الدرجات عبر CSV','Download':'تنزيل','Upload':'رفع','Choose File':'اختر ملفًا','Data Backup':'نسخ احتياطي للبيانات','Restore Data':'استعادة البيانات','Confirm':'تأكيد','Are you sure?':'هل أنت متأكد؟','No records found.':'لم يتم العثور على سجلات.','No students found.':'لم يتم العثور على طلاب.','No assessments found.':'لم يتم العثور على تقويمات.','Saved successfully.':'تم الحفظ بنجاح.','Changes saved.':'تم حفظ التغييرات.','Please try again.':'يرجى المحاولة مرة أخرى.','Name':'الاسم','Class Profiles':'ملفات الفصول','Add Class':'إضافة فصل','+ Add Class':'+ إضافة فصل','School':'المدرسة','Academic Session':'السنة الدراسية','Welcome':'مرحبًا','Male':'ذكر','Female':'أنثى','Islamic Primary':'الابتدائية الإسلامية','First':'الأول','Second':'الثاني','Third':'الثالث','Edit':'تعديل','Update':'تحديث','Delete Student':'حذف الطالب','Save Student':'حفظ بيانات الطالب','Select term':'اختر الفصل الدراسي','Student details':'بيانات الطالب','Question text':'نص السؤال','Correct answer':'الإجابة الصحيحة','Marks':'الدرجات','Instructions':'التعليمات','Print / Save PDF':'طباعة / حفظ PDF','Save as PDF':'حفظ بصيغة PDF','Report':'التقرير','Home':'الرئيسية','Next':'التالي','Previous':'السابق','Required':'مطلوب','Optional':'اختياري','Please select a class first.':'يرجى اختيار الفصل أولًا.','Please select a subject.':'يرجى اختيار المادة.','Please enter student name.':'يرجى إدخال اسم الطالب.','Are you sure you want to delete this item?':'هل أنت متأكد من حذف هذا العنصر؟','All':'الكل','Male Students':'الطلاب الذكور','Female Students':'الطالبات','Student Record':'سجل الطالب','Question Sets':'مجموعات الأسئلة','Exam Papers':'أوراق الامتحان','Accounts':'الحسابات','User Accounts':'حسابات المستخدمين','Save Changes':'حفظ التغييرات','Remove':'إزالة','Back':'رجوع','Back to Dashboard':'العودة إلى لوحة التحكم','Settings saved.':'تم حفظ الإعدادات.','No results yet.':'لا توجد نتائج بعد.','Create':'إنشاء','Open':'فتح','Preview':'معاينة','Clear':'مسح','Reset':'إعادة ضبط','Print Sheet':'طباعة الكشف','Class / Section':'الفصل / القسم','Arm':'القسم','Department':'القسم','Delete Student':'حذف الطالب','Enter marks':'أدخل الدرجات','Student ID':'رقم الطالب','School Logo':'شعار المدرسة','Upload Logo':'رفع الشعار','Session not set':'لم تُحدَّد السنة الدراسية','No':'لا','Yes':'نعم','Open a Section':'اختر قسمًا','Manage and alphabetically save your class register.':'إدارة سجل الفصل وحفظ أسماء الطلاب بالترتيب الأبجدي.','Enter CA scores, calculate totals and grades, save and print results.':'إدخال درجات التقويم المستمر (CA)، وحساب المجموع والتقدير، وحفظ النتائج وطباعتها.','Create reusable question sets and keep an organized record.':'إنشاء مجموعات أسئلة قابلة لإعادة الاستخدام وتنظيمها.','Set, prepare and print final examination papers.':'إعداد أوراق الامتحان النهائي وتجهيزها وطباعتها.','School details, class profiles, facilitator, session and security settings.':'بيانات المدرسة وملفات الفصول والمعلم المسؤول والسنة الدراسية وإعدادات الأمان.','Assessments':'التقويمات','Student Register':'سجل الطلاب','Select a class':'اختر الفصل','No class profiles created yet.':'لم يتم إنشاء ملفات للفصول بعد.','Set Up Class Details':'إعداد بيانات الفصل','New Class':'فصل جديد','Current':'الحالي','Delete Class':'حذف الفصل','Class details saved.':'تم حفظ بيانات الفصل.','Add Student':'إضافة طالب','Bulk Add':'إضافة جماعية','Class Profile':'ملف الفصل','Continuous Assessment Record':'سجل التقويم المستمر','Student Continuous Assessment Record':'سجل التقويم المستمر للطلاب','Assessment Record':'سجل التقويم','School Logo':'شعار المدرسة','Upload Logo':'رفع شعار المدرسة','School address':'عنوان المدرسة','Motto':'الشعار','Knowledge and Practice':'العلم والعمل','العِلْمُ وَالعَمَلُ':'العِلْمُ وَالعَمَلُ','Opposite Street to Dafara Junction Road, Kuje Abuja':'مقابل الشارع المؤدي إلى تقاطع دافارا، كوجي، أبوجا','Save and Print':'حفظ وطباعة','Save Assessment':'حفظ التقويم','New Question Set':'مجموعة أسئلة جديدة','Create Question Set':'إنشاء مجموعة أسئلة','Question Set Name':'اسم مجموعة الأسئلة','Question Type':'نوع السؤال','Multiple Choice':'اختيار من متعدد','Short Answer':'إجابة قصيرة','Long Answer':'إجابة مطولة','Add Question Set':'إضافة مجموعة أسئلة','Delete Question Set':'حذف مجموعة الأسئلة','Exam Settings':'إعدادات الامتحان','Paper Title':'عنوان الورقة','Time Allowed':'الزمن المحدد','Total Marks':'مجموع الدرجات','Instructions to Candidates':'تعليمات للطلاب','Generate Paper':'إنشاء ورقة الامتحان','Save Paper':'حفظ ورقة الامتحان','Edit Paper':'تعديل ورقة الامتحان','Delete Paper':'حذف ورقة الامتحان','Exam Date':'تاريخ الامتحان','Assessment Date':'تاريخ التقويم','Maximum Score':'الدرجة القصوى','Enter scores':'أدخل الدرجات','CA /30 + Exam /70':'التقويم المستمر /30 + الامتحان /70','Score':'الدرجة','Scores':'الدرجات','Print Results':'طباعة النتائج','Print Assessment':'طباعة التقويم','Export CSV':'تصدير CSV','Import CSV':'استيراد CSV','Download CSV':'تنزيل CSV','CSV File':'ملف CSV','Choose CSV File':'اختر ملف CSV','Upload CSV':'رفع ملف CSV','Restore Backup':'استعادة النسخة الاحتياطية','Create Backup':'إنشاء نسخة احتياطية','Backup Data':'نسخ البيانات احتياطيًا','Restore from Backup':'الاستعادة من النسخة الاحتياطية','Security':'الأمان','Administrator Settings':'إعدادات المسؤول','Administrator':'المسؤول','Facilitator':'المعلم المسؤول','App/Admin Settings':'إعدادات التطبيق / المسؤول','Class details must be set first.':'يجب إعداد بيانات الفصل أولًا.','Current Class':'الفصل الحالي','Student full name':'الاسم الكامل للطالب','Edit Scores':'تعديل الدرجات','Delete Assessment':'حذف التقويم','View / Print':'عرض / طباعة','Open':'فتح','Open Sheet':'فتح الكشف','Create Class':'إنشاء فصل','Select class':'اختر الفصل','Select subject':'اختر المادة','Subject Name':'اسم المادة','Question Bank':'بنك الأسئلة (Question Bank)','Terminal Examination':'الامتحان النهائي (Terminal Examination)','Assessment':'التقويم المستمر (Assessment)','Students':'الطلاب','Administrator Settings':'إعدادات المسؤول','Settings':'الإعدادات (Settings)','Dashboard':'لوحة التحكم (Dashboard)','Offline Ready':'جاهز للعمل دون إنترنت (Offline Ready)','CA RECORD':'سجل التقويم المستمر (CA Record)','Return to Dashboard':'العودة إلى لوحة التحكم','Logout':'تسجيل الخروج','App / Admin Settings':'إعدادات التطبيق / المسؤول','Islamic Primary 1':'الابتدائية الإسلامية 1 (Islamic Primary 1)','Islamic Primary 2':'الابتدائية الإسلامية 2 (Islamic Primary 2)','Islamic Primary 3':'الابتدائية الإسلامية 3 (Islamic Primary 3)','Islamic Primary 4':'الابتدائية الإسلامية 4 (Islamic Primary 4)','Islamic Primary 5':'الابتدائية الإسلامية 5 (Islamic Primary 5)','Islamic Primary 6':'الابتدائية الإسلامية 6 (Islamic Primary 6)','JISS 1':'المتوسطة الإسلامية 1 (JISS 1)','JISS 2':'المتوسطة الإسلامية 2 (JISS 2)','JISS 3':'المتوسطة الإسلامية 3 (JISS 3)','SISS 1':'الثانوية الإسلامية 1 (SISS 1)','SISS 2':'الثانوية الإسلامية 2 (SISS 2)','SISS 3':'الثانوية الإسلامية 3 (SISS 3)','شعار المدرسة':'شعار المدرسة','School Logo':'شعار المدرسة','CA Record':'سجل التقويم المستمر (CA Record)','Student Register':'سجل الطلاب','Class profiles':'ملفات الفصول','School details':'بيانات المدرسة','Facilitator Name':'اسم المعلم المسؤول','Open a Section':'اختر قسمًا','Enter username':'أدخل اسم المستخدم','Enter password':'أدخل كلمة المرور','Login to continue':'سجّل الدخول للمتابعة','No records':'لا توجد سجلات','No class':'لا يوجد فصل','View':'عرض','Delete':'حذف','Save':'حفظ','Submit':'إرسال','Download':'تنزيل','Upload':'رفع','Return':'رجوع','Assessment Name':'اسم التقويم','Select assessment':'اختر التقويم','Question Bank':'بنك الأسئلة (Question Bank)','Terminal Examination':'الامتحان النهائي (Terminal Examination)'
+};
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);const translatedNodes=new WeakSet();
+function tr(s){const out=String(s);for(const k of keys){if(out.trim().toLocaleLowerCase()===k.toLocaleLowerCase())return T[k];}const escRe=k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const re=new RegExp(keys.filter(k=>k.length>3).map(escRe).join('|'),'gi');return out.replace(re,m=>{const k=keys.find(x=>x.toLocaleLowerCase()===m.toLocaleLowerCase());return k?T[k]:m;});}
+function translate(){const root=document.body;if(!root)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode())){if(!n.nodeValue||!n.nodeValue.trim()||translatedNodes.has(n))continue;const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|TEXTAREA|INPUT|CODE|PRE)$/i.test(p.tagName)||p.closest('[data-no-translate]'))continue;const v=tr(n.nodeValue);if(v!==n.nodeValue){n.nodeValue=v;translatedNodes.add(n);}}root.querySelectorAll('input[placeholder],textarea[placeholder],button[title],img[alt],input[aria-label],select[aria-label]').forEach(el=>{for(const a of ['placeholder','title','alt','aria-label'])if(el.hasAttribute(a)){const old=el.getAttribute(a);if(!/[\u0600-\u06FF]/.test(old))el.setAttribute(a,tr(old));}});root.querySelectorAll('option').forEach(o=>{if(/[\u0600-\u06FF]/.test(o.textContent))return;const v=tr(o.textContent);if(v!==o.textContent)o.textContent=v;});}
+let busy=false;function schedule(){if(busy)return;busy=true;requestAnimationFrame(()=>{busy=false;translate()})}
+const ob=new MutationObserver(schedule);document.addEventListener('DOMContentLoaded',()=>{translate();ob.observe(document.body,{subtree:true,childList:true,characterData:true});setTimeout(translate,300);setTimeout(translate,1200)});setTimeout(()=>{if(document.body){translate();ob.observe(document.body,{subtree:true,childList:true,characterData:true})}},0);
+})();
+</script>
+
+<style id="guidance-islamic-distinct-colors">:root{--navy:#702c45!important;--blue:#9b4963!important;--teal:#287c73!important;--gold:#d9b56d!important;--bg:#fbf6f0!important;--line:#e5d5c9!important;--ink:#392b32!important;--text:#392b32!important;--muted:#76646a!important}body{background:radial-gradient(circle at 10% 0%,#f4e3d7 0,transparent 34%),linear-gradient(135deg,#fbf6f0,#f2e7e0)!important}button,.primary,.success{background:linear-gradient(135deg,#702c45,#9b4963)!important;color:#fff!important} .hero{background:linear-gradient(120deg,#702c45 0%,#9b4963 58%,#287c73 100%)!important}.logo{border-color:#d9b56d!important}.tile,.card{border-color:#e5d5c9}</style><script id="guidance-arabic-number-support-ca-restored">function guidanceToLatin(v){return String(v??'').replace(/[٠-٩۰-۹]/g,c=>{const a='٠١٢٣٤٥٦٧٨٩',p='۰۱۲۳۴۵۶۷۸۹';let i=a.indexOf(c);return i>=0?String(i):String(p.indexOf(c));}).replace(/[٫٬]/g,'.').replace(/,/g,'').trim()}function guidanceIsArabic(v){return /[٠-٩۰-۹]/.test(String(v??''))}function guidanceFormatNumber(v,arabic=true){if(v===null||v===undefined||v==='')return '—';let s=String(v);return arabic?s.replace(/[0-9]/g,c=>'٠١٢٣٤٥٦٧٨٩'[+c]):s}function guidanceArabicGrade(n){return n>=70?'أ':n>=60?'ب':n>=50?'ج':n>=45?'د':n>=40?'هـ':'و'}function guidanceClampScore(raw,max){const latin=guidanceToLatin(raw).replace(/[^0-9.\-]/g,'');if(latin===''||latin==='-'||latin==='.')return null;const n=Number(latin);if(!Number.isFinite(n))return null;return Math.max(0,Math.min(Number(max)||0,n))} </script>
+<style id="guidance-islamic-dashboard-light-ink-final">
+/* Improve contrast for dashboard module text without changing app behaviour */
+.module h4,.module p,.module .secondary,.module .module-arrow,.module .icon,
+.dashboard .module h4,.dashboard .module p,.module-grid .module h4,.module-grid .module p {
+ color:#f4f7fb !important; -webkit-text-fill-color:#f4f7fb !important;
+}
+.module p,.module .secondary {color:#e3edf5!important;-webkit-text-fill-color:#e3edf5!important;}
+.module h4 {font-weight:800;text-shadow:0 1px 1px rgba(0,0,0,.16)}
+</style>
+</body>
